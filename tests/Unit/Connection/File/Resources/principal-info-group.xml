@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <principal account-id="624520" disabled="" has-children="true" is-ecommerce="false" is-hidden="false"
+               is-primary="false" principal-id="2006403979" tos-status="" type="group">
+        <description>Group Test Description</description>
+        <login>Group Test Login</login>
+        <name>Group Test Name</name>
+    </principal>
+</results>

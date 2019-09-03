@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <sco account-id="624520" disabled="" display-seq="0" folder-id="2006258750" icon="meeting" lang="en" max-retries=""
+         sco-id="2006320683" source-sco-id="-1625529" type="meeting" version="0">
+        <date-begin>2006-05-04T11:15:00.000-07:00</date-begin>
+        <date-created>2006-05-04T11:27:47.087-07:00</date-created>
+        <date-end>2006-05-04T12:15:00.000-07:00</date-end>
+        <date-modified>2006-05-04T11:27:47.087-07:00</date-modified>
+        <name>Technology and Law Review Meeting</name>
+        <url-path>/tlawreview/</url-path>
+    </sco>
+    <source-sco>
+        <source-sco account-id="624520" display-seq="0" folder-id="-625529" icon="meeting" lang="en" max-retries=""
+                    sco-id="-1625529" source-sco-id="-8888" type="meeting" version="0">
+            <date-created>2004-10-05T00:49:30.217-07:00</date-created>
+            <date-modified>2005-01-04T15:03:25.937-08:00</date-modified>
+            <name>Default Meeting Template</name>
+            <url-path>/defaultMeetingTemplate/</url-path>
+        </source-sco>
+    </source-sco>
+</results>

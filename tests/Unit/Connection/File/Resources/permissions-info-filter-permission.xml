@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <permissions>
+        <principal principal-id="5" is-primary="false" type="user" has-children="false" permission-id="mini-host"
+                   training-group-id="2007842424">
+            <name>Test</name>
+            <login>test@acme.com</login>
+        </principal>
+    </permissions>
+</results>

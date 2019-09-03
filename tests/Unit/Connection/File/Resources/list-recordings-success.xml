@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <recordings>
+        <sco sco-id="13633" source-sco-id="13402" folder-id="11914" type="content" icon="archive" display-seq="0"
+             job-id="13634" account-id="" job-status="" encoder-service-job-progress="" is-folder="0"
+             no-of-downloads="0">
+            <name>content_test</name>
+            <url-path>/p4tc3hz7erj/</url-path>
+            <date-begin>2013-06-06T14:28:37.457+02:00</date-begin>
+            <date-end>2013-06-06T14:35:02.383+02:00</date-end>
+            <date-created>2013-06-06T14:28:37.457+02:00</date-created>
+            <date-modified>2013-06-24T14:24:26.973+02:00</date-modified>
+            <duration>00:06:24.927</duration>
+            <filename>/common/meetingAS3/shell/shell.swf</filename>
+        </sco>
+    </recordings>
+</results>

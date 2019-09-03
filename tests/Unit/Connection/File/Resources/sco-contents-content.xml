@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <scos>
+        <sco sco-id="2007035298" source-sco-id="" folder-id="10" type="content" icon="producer" display-seq="0"
+             duration="" is-folder="0">
+            <name>Content Name</name>
+            <url-path>/woeriuwerkl/</url-path>
+            <date-created>2016-12-20T11:18:46.730-02:00</date-created>
+            <date-modified>2016-12-20T11:18:47.780-02:00</date-modified>
+            <is-seminar>false</is-seminar>
+        </sco>
+    </scos>
+</results>

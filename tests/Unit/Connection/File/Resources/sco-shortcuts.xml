@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <shortcuts>
+        <sco tree-id="1611776127" sco-id="1611766930" type="shared-training-templates">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776132" sco-id="1611766945" type="my-training-templates">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776132" sco-id="1611766944" type="my-courses">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776134" sco-id="1611766946" type="my-events">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776129" sco-id="1611766923" type="shared-meeting-templates">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776130" sco-id="1611766943" type="my-meeting-templates">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776130" sco-id="1611766942" type="my-meetings">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776128" sco-id="1611766941" type="my-content">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776126" sco-id="1611776126" type="content">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776127" sco-id="1611776127" type="courses">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776128" sco-id="1611776128" type="user-content">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776129" sco-id="1611776129" type="meetings">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776130" sco-id="1611776130" type="user-meetings">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776131" sco-id="1611776131" type="account-custom">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776132" sco-id="1611776132" type="user-courses">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776133" sco-id="1611776133" type="events">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776134" sco-id="1611776134" type="user-events">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776136" sco-id="1611776136" type="training-catalog">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776137" sco-id="1611776137" type="forced-archives">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+        <sco tree-id="1611776138" sco-id="1611776138" type="chat-transcripts">
+            <domain-name>https://meet64288026.adobeconnect.com</domain-name>
+        </sco>
+    </shortcuts>
+</results>

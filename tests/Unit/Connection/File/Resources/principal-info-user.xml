@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <contact>
+        <email>bob@acme.com</email>
+        <first-name>Bob</first-name>
+        <last-name>Jones</last-name>
+    </contact>
+    <preferences acl-id="2006258745" lang="en" time-zone-id="4"/>
+    <principal account-id="624520" disabled="" has-children="false" is-ecommerce="false" is-hidden="false"
+               is-primary="false" principal-id="2006258745" tos-status="" type="user">
+        <ext-login>joy@acme.com</ext-login>
+        <login>joy@acme.com</login>
+        <name>Joy Smith</name>
+        <email>joy@acme.com</email>
+        <first-name>Joy</first-name>
+        <last-name>Smith</last-name>
+        <account-expiry-login-notif>true</account-expiry-login-notif>
+        <dont-show-login-notif>false</dont-show-login-notif>
+    </principal>
+</results>

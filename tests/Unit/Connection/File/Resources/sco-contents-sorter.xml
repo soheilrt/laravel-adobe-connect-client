@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <scos>
+        <sco sco-id="2007035247" source-sco-id="" folder-id="2006258748" type="meeting" icon="meeting" display-seq="0"
+             duration="3600" is-folder="0">
+            <name>Adobe Connect 002</name>
+            <url-path>/adobeconnect002/</url-path>
+            <date-begin>2016-08-17T07:30:00.000-03:00</date-begin>
+            <date-end>2016-08-17T08:30:00.000-03:00</date-end>
+            <date-created>2016-08-16T17:26:19.137-03:00</date-created>
+            <date-modified>2016-08-17T09:19:27.357-03:00</date-modified>
+            <is-seminar>false</is-seminar>
+        </sco>
+        <sco sco-id="2007035246" source-sco-id="2006334909" folder-id="2006258748" type="meeting" icon="meeting"
+             display-seq="0" duration="3600" is-folder="0">
+            <name>Adobe Connect 001</name>
+            <url-path>/adobeconnect001/</url-path>
+            <date-begin>2016-08-16T07:30:00.000-03:00</date-begin>
+            <date-end>2016-08-16T08:30:00.000-03:00</date-end>
+            <date-created>2016-08-17T08:50:34.860-03:00</date-created>
+            <date-modified>2016-08-17T08:50:34.860-03:00</date-modified>
+            <is-seminar>false</is-seminar>
+        </sco>
+    </scos>
+</results>

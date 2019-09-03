@@ -1,0 +1,53 @@
+{
+    "name": "soheilrt/laravel-adobe-connect-client",
+    "description": "Adobe Connect Client Package For Laravel Based Applications",
+    "keywords": [
+        "adobe",
+        "adobe connect",
+        "laravel",
+        "seminar",
+        "virtual classroom",
+        "webinar"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Soheil Rahmat",
+            "email": "soheilrt314@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-curl": "^7.2",
+        "ext-fileinfo": "^1.0",
+        "laravel/framework": "5.8.*",
+        "orchestra/testbench": "^3.8"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.4",
+        "phpunit/phpunit": "^5.7|6.2|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Soheilrt\\AdobeConnectClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Soheilrt\\AdobeConnectClient\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Soheilrt\\AdobeConnectClient\\AdobeConnectServiceProvider"
+            ]
+        }
+    }
+}

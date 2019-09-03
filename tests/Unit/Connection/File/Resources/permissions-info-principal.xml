@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<results>
+    <status code="ok"/>
+    <permission acl-id="12345" permission-id="host" principal-id="987654"/>
+</results>

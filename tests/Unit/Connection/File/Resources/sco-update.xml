@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok"/>
+    <sco account-id="624520" disabled="" display-seq="0" folder-id="2006258747" icon="meeting" lang="pt-br"
+         max-retries="" sco-id="2006752036" source-sco-id="" type="meeting" version="0">
+        <date-begin>2018-03-12T14:00:00.000-03:00</date-begin>
+        <date-created>2018-03-12T11:36:08.603-03:00</date-created>
+        <date-end>2018-03-12T15:00:00.000-03:00</date-end>
+        <date-modified>2018-03-12T11:36:08.603-03:00</date-modified>
+        <name>SCO Name</name>
+        <url-path>/p53884157/</url-path>
+    </sco>
+</results>

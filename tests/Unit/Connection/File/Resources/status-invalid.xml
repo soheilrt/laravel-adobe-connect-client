@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="invalid">
+        <invalid field="principal-id" type="id" subcode="missing"/>
+    </status>
+</results>
