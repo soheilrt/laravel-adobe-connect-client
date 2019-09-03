@@ -37,10 +37,20 @@ return [
     'password'   => env('ADOBE_CONNECT_PASSWORD', ''),
 
     /**
-     * @todo complete phpdoc
+     * ---------------------------
+     * Connection Default Settings
+     *---------------------------
+     *
+     * Client Facade Connection Default Values, If any of given values from below removed it'll use default value.
+     * Connection Class will use settings by default as below and if you want to change it, you have to pass a second
+     * value to the connection class manually
      */
     'connection' => [
-        //
+        CURLOPT_CONNECTTIMEOUT => 120,
+        CURLOPT_TIMEOUT        => 120,
+        CURLOPT_MAXREDIRS      => 10,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
     ],
     /**
      *-----------------------------

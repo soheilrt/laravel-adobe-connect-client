@@ -66,6 +66,8 @@ class Connection implements ConnectionInterface
      */
     protected function setConfig(array $config)
     {
+        //get default configuration value and merge them with user given values in case that user
+        //if any of given values are missing from below were absent it'll use default config as given below
         $defaults = [
             CURLOPT_CONNECTTIMEOUT => 120,
             CURLOPT_TIMEOUT        => 120,
