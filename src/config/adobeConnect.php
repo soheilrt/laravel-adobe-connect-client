@@ -9,17 +9,30 @@ use Soheilrt\AdobeConnectClient\Client\Entities\SCORecord;
 return [
 
     /**
-     * @todo complete phpdoc
+     * ---------------------------
+     * Adobe Connect Host address
+     * ---------------------------
+     *
+     * Adobe Connect host address which by default set to test.adobeconnect.com/api/xml
+     *
      */
     'host'       => env('ADOBE_CONNECT_HOST', 'https://test.adobeconnect.com/api/xml'),
 
     /**
-     * @todo complete phpdoc
+     * ---------------------------
+     * Your Adobe Connect username
+     *---------------------------
+     *
+     * it'll use an empty string in case that ADOBE_CONNECT_USER_NAME environment is not set
      */
     'user-name'  => env('ADOBE_CONNECT_USER_NAME', ''),
 
     /**
-     * @todo complete phpdoc
+     * ---------------------------
+     * Your Adobe Connect username
+     *---------------------------
+     *
+     * it'll use an empty string in case that ADOBE_CONNECT_PASSWORD environment is not set
      */
     'password'   => env('ADOBE_CONNECT_PASSWORD', ''),
 
@@ -33,31 +46,42 @@ return [
      *-----------------------------
      * module entities class
      * ---------------------------
-     * @todo compelete comments
+     *
+     * you can use your own class instead of default class.
      */
     'entities'   => [
         /**
-         * @todo complete phpdoc
+         *-----------------------------
+         * Common info Class
+         * ---------------------------
          */
         "common-info" => CommonInfo::class,
 
         /**
-         * @todo complete phpdoc
+         *-----------------------------
+         * Permissions Class
+         * ---------------------------
          */
         "permission"  => Permission::class,
 
         /**
-         * @todo complete phpdoc
+         *-----------------------------
+         * Principal Class
+         * ---------------------------
          */
         "principal"   => Principal::class,
 
         /**
-         * @todo complete phpdoc
+         *-----------------------------
+         * SCO Class
+         * ---------------------------
          */
         'sco'         => SCO::class,
 
         /**
-         * @todo complete phpdoc
+         *-----------------------------
+         * SCO Records Class
+         * ---------------------------
          */
         'sco-record'  => SCORecord::class,
     ],
@@ -70,8 +94,8 @@ return [
      *
      * laravel's adobe connect supports queues for running tasks in order to 
      * improve application performance
-     * 
-     * 
+     *
+     * @todo impelement queue
      */
     "queue"      => [
         /**
