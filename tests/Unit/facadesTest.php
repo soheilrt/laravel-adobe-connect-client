@@ -52,4 +52,10 @@ class facadesTest extends TestCase
         $this->assertEquals("testSession", Client::getSession());
     }
 
+    public function test_client_root_facade()
+    {
+        $root=Client::getFacadeRoot();
+        $this->assertInstanceOf(\Soheilrt\AdobeConnectClient\Client\Client::class,$root);
+    }
+
 }
