@@ -17,6 +17,6 @@ class Permission extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'Permission';
+        return 'permission';
     }
 }

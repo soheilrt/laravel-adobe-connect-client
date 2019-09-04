@@ -51,6 +51,6 @@ class Client extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return "AdobeClient";
+        return 'adobe-connect';
     }
 }

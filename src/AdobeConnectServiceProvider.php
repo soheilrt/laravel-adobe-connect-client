@@ -3,13 +3,14 @@
 namespace Soheilrt\AdobeConnectClient;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use Soheilrt\AdobeConnectClient\Client\Client;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Connection;
-use Soheilrt\AdobeConnectClient\Client\Entities\SCO;
 use Soheilrt\AdobeConnectClient\Facades\CommonInfo;
 use Soheilrt\AdobeConnectClient\Facades\Permission;
 use Soheilrt\AdobeConnectClient\Facades\Principal;
+use Soheilrt\AdobeConnectClient\Facades\SCO;
 use Soheilrt\AdobeConnectClient\Facades\SCORecord;
 
 class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableProvider
@@ -21,30 +22,8 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
      */
     public function register()
     {
-        //
-    }
+        $this->mergeConfigFrom(__DIR__ . "/config/adobeConnect.php", 'adobeConnect');
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->publishConfigs();
-        $this->bindFacades();
-    }
-
-    /**
-     * register config files
-     *
-     * @return null
-     */
-    private function publishConfigs()
-    {
-        $this->publishes([
-            __DIR__ . '/config/adobeConnect.php' => config_path('adobeConnect.php'),
-        ], 'config');
     }
 
     /**
@@ -57,31 +36,51 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $config = $this->app["config"]->get("adobeConnect");
         $entities = $config["entities"];
 
-        $this->app->bind('SCO', function () use ($entities) {
-            return new $entities["sco"]();
-        });
-        $this->app->bind('SCORecord', function () use ($entities) {
-            return new $entities["sco-record"]();
-        });
-        $this->app->bind('Principal', function () use ($entities) {
-            return new $entities["principal"]();
-        });
-        $this->app->bind('Permission', function () use ($entities) {
-            return new $entities["permission"]();
-        });
-        $this->app->bind('CommonInfo', function () use ($entities) {
-            return new $entities["common-info"]();
-        });
-        $this->app->singleton('AdobeClient', function () use ($config) {
+        $this->app->singleton(Client::class, function () use ($config) {
             $connection = new Connection($config["host"], $config["connection"]);
             $client = new Client($connection);
             $client->login($config["user-name"], $config["password"]);
             return $client;
         });
+
+        $this->app->bind('sco', function () use ($entities) {
+            return new $entities["sco"]();
+        });
+        $this->app->bind('sco-record', function () use ($entities) {
+            return new $entities["sco-record"]();
+        });
+        $this->app->bind('principal', function () use ($entities) {
+            return new $entities["principal"]();
+        });
+        $this->app->bind('permission', function () use ($entities) {
+            return new $entities["permission"]();
+        });
+        $this->app->bind('common-info', function () use ($entities) {
+            return new $entities["common-info"]();
+        });
+        $this->app->singleton('adobe-connect', function () {
+            return App::make(Client::class);
+        });
+
     }
 
     /**
-     * {@inheritDoc}
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__ . '/config/adobeConnect.php' => config_path('adobeConnect.php'),
+        ], 'adobe-connect');
+        $this->bindFacades();
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
      */
     public function provides()
     {
@@ -92,6 +91,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
             CommonInfo::class,
             Client::class,
             SCO::class,
+            'adobe-connect'
         ];
     }
 }
