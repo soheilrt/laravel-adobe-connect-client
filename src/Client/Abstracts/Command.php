@@ -23,7 +23,7 @@ use UnexpectedValueException;
 abstract class Command
 {
     /**
-     * @var static
+     * @var Client|static
      */
     protected $client;
 
