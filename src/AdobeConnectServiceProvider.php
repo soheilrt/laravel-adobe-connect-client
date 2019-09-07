@@ -24,7 +24,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . "/config/adobeConnect.php", 'adobeConnect');
-
+        $this->bindFacades();
     }
 
     /**
@@ -138,7 +138,6 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $this->publishes([
             __DIR__ . '/config/adobeConnect.php' => config_path('adobeConnect.php'),
         ], 'adobe-connect');
-        $this->bindFacades();
     }
 
     /**
