@@ -29,6 +29,7 @@ class TestCase extends OrchestraTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app["config"]->set("adobeConnect", require __DIR__ . "/../src/config/adobeConnect.php");
+        $app["config"]->set('adobeConnect.session-cache.driver','array');
 
         $app['config']->set('database.default', 'test');
         $app['config']->set('database.connections.test', [

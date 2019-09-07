@@ -52,6 +52,65 @@ return [
         CURLOPT_SSL_VERIFYPEER => true,
         CURLOPT_SSL_VERIFYHOST => 2,
     ],
+
+    /**
+     *---------------------------
+     * Session Cache Driver
+     * --------------------------
+     *
+     * Cache session in order to use session it for next request in order to be able to have ability to
+     * able to execute requested commands without sending extra login request
+     */
+    'session-cache' =>
+        [
+            /**
+             * --------------------
+             * Session cache status
+             * --------------------
+             * Set setting to cache session for next requests
+             *
+             * true= application will automatically login or cached session when trying to use dependency injection
+             * based on login information that provided in env file.
+             *
+             * false = application will not save session info and you have to login manually each time you want to
+             * use adobe connect client.
+             */
+            'enabled' => true,
+
+            /**
+             * -------------------
+             * cache driver
+             * -------------------
+             *
+             * Cache driver is set to application default cache driver
+             * you can change cache driver to whatever you want
+             */
+            'driver'  => env('ADOBE_CONNECT_CACHE_DRIVER', ''),
+
+            /**
+             * -------------------
+             * Session cache key name
+             * -------------------
+             *
+             */
+            'key'     => env('ADOBE_CONNECT_CACHE_KEY', 'adobe-connect-session'),
+
+            /**
+             * ---------------------------
+             * cache session timeout
+             * ---------------------------
+             *
+             * session key will keep for 4 days form first login by default. you can increase session expiration time
+             * through adobe connect admin panel and after that you can increase it from env/config file.
+             * @see https://helpx.adobe.com/adobe-connect/installconfigure/configuring-session-timeout-value.html
+             *
+             * NOTE: Since laravel 5.8 gets cache timeout in seconds you should consider expiration time in second
+             * NOTE: if you want to increase cache timeout, you SHOULD increase your timeout from your adobe connect
+             * panel.
+             */
+            'timeout' => env("ADOBE_CONNECT_SESSION_TIMEOUT", now()->addDays(4)),
+        ],
+
     /**
      *-----------------------------
      * module entities class

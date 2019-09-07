@@ -5,6 +5,8 @@ namespace Soheilrt\AdobeConnectClient\Tests\Unit;
 
 
 use DateTimeImmutable;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 use Soheilrt\AdobeConnectClient\Facades\Client;
 use Soheilrt\AdobeConnectClient\Facades\CommonInfo;
 use Soheilrt\AdobeConnectClient\Facades\Permission;
@@ -56,6 +58,15 @@ class facadesTest extends TestCase
     {
         $root=Client::getFacadeRoot();
         $this->assertInstanceOf(\Soheilrt\AdobeConnectClient\Client\Client::class,$root);
+    }
+
+    public function test_session_cache()
+    {
+        $session="sessionstring";
+        $driver=config('adobeConnect.session-cache.driver');
+        $key=config('adobeConnect.session-cache.key');
+        Cache::store($driver)->put($key,$session,20);
+        $this->assertEquals($session,Client::getSession());
     }
 
 }

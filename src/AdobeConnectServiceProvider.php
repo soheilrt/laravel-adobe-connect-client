@@ -4,6 +4,7 @@ namespace Soheilrt\AdobeConnectClient;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Soheilrt\AdobeConnectClient\Client\Client;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Connection;
@@ -36,11 +37,8 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $config = $this->app["config"]->get("adobeConnect");
         $entities = $config["entities"];
 
-        $this->app->singleton(Client::class, function () use ($config) {
-            $connection = new Connection($config["host"], $config["connection"]);
-            $client = new Client($connection);
-            $client->login($config["user-name"], $config["password"]);
-            return $client;
+        $this->app->singleton(Client::class, function () {
+            return $this->processClient();
         });
 
         $this->app->bind('sco', function () use ($entities) {
@@ -62,6 +60,72 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
             return App::make(Client::class);
         });
 
+    }
+
+    /**
+     * get Adobe Connect Client Config
+     *
+     * @return array|null
+     */
+    private function getAdobeConfig()
+    {
+        return $this->app["config"]->get("adobeConnect");
+    }
+
+    /**
+     * login adobe client in case of there is no session configured
+     *
+     * @return Client
+     */
+    private function processClient()
+    {
+        $config = $this->getAdobeConfig();
+
+        $connection = new Connection($config["host"], $config["connection"]);
+        $client = new Client($connection);
+
+        if ($config["session-cache"]["enabled"]) {
+            $this->loginClient($client);
+        }
+
+        return $client;
+    }
+
+    /**
+     * Login Client Based information that introduced in environment/config file
+     *
+     * @param Client $client
+     *
+     * @return void
+     */
+    private function loginClient(Client $client)
+    {
+        $config = $this->getAdobeConfig();
+        $driver = $this->getCacheDriver();
+
+        $session = Cache::store($driver)->remember(
+            $config['session-cache']['key'],
+            $config['session-cache']['timeout'],
+            function () use ($config, $client) {
+                $client->login($config["user-name"], $config["password"]);
+                return $client->getSession();
+            });
+
+        $client->setSession($session);
+    }
+
+    /**
+     * get Preferred cache driver
+     *
+     * @return string|null
+     */
+    private function getCacheDriver()
+    {
+        $config = $this->app["config"]->get("adobeConnect");
+        if ($driver = $config["session-cache"]["driver"]) {
+            return $driver;
+        }
+        return $this->app["config"]->get("cache.default");
     }
 
     /**
