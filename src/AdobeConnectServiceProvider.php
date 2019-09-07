@@ -34,7 +34,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
      */
     private function bindFacades()
     {
-        $config = $this->app["config"]->get("adobeConnect");
+        $config = $this->getAdobeConfig();
         $entities = $config["entities"];
 
         $this->app->singleton(Client::class, function () {
