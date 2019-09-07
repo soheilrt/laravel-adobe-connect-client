@@ -7,7 +7,7 @@ Thanks to [brunogasparetto](https://github.com/brunogasparetto/AdobeConnectClien
 This package inspired from [brunogasparetto's](https://github.com/brunogasparetto/AdobeConnectClient) package
 and an extend version from [AdobeConnectClient](https://github.com/soheilrt/AdobeConnectClient) API for laravel application.
 
-##Installation
+## Installation
 you can install this package through [packagist](https://packagist.org/packages/soheilrt/laravel-adobe-connect-client)
 ```bash
 composer require soheilrt/laravel-adobe-connect-client
