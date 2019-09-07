@@ -62,13 +62,13 @@ class Client
     protected $sessionCookie = '';
 
     /**
-     * @param ConnectionInterface $connection    The Connection handler
-     * @param string              $sessionCookie The Session Cookie
+     * @param ConnectionInterface $connection The Connection handler
+     * @param string              $session    The Session Cookie
      */
-    public function __construct(ConnectionInterface $connection, string $sessionCookie = '')
+    public function __construct(ConnectionInterface $connection, string $session = '')
     {
         $this->connection = $connection;
-        $this->sessionCookie = $sessionCookie;
+        $this->sessionCookie = $session;
     }
 
     /**
