@@ -64,7 +64,7 @@ class ConnectionTest extends TestCase
         $connection->post([]);
     }
 
-    protected function setUp()
+    protected function setUp():void
     {
         if (defined(TEST_CONNECTION_CURL)) {
             $this->markTestSkipped();

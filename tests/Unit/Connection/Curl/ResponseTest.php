@@ -72,7 +72,7 @@ class ResponseTest extends TestCase
         $this->assertEquals($headerLine, $this->response->getHeaderLine('Content-Type'));
     }
 
-    protected function setUp()
+    protected function setUp():void
     {
         parent::setUp();
 
