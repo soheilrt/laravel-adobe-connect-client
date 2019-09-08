@@ -1,4 +1,7 @@
 # Laravel Adobe Connect Client 
+[![Build Status](https://travis-ci.org/soheilrt/laravel-adobe-connect-client.svg?branch=master)](https://travis-ci.org/soheilrt/laravel-adobe-connect-client)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/soheilrt/laravel-adobe-connect-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/soheilrt/laravel-adobe-connect-client/?branch=master)
+
 
 ## Requirements
 * PHP 7.2 and above
