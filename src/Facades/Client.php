@@ -5,6 +5,7 @@ namespace Soheilrt\AdobeConnectClient\Facades;
 
 
 use Illuminate\Support\Facades\Facade;
+use Soheilrt\AdobeConnectClient\Client\Contracts\ArrayableInterface as Arrayable;
 use SplFileInfo;
 
 /**
@@ -15,8 +16,8 @@ use SplFileInfo;
  * @method static SCO scoCreate(Arrayable $sco) Create a SCO
  * @method static bool scoUpdate(Arrayable $sco) Update a SCO
  * @method static bool scoDelete(int $scoId) Delete a SCO or a Folder
- * @method static SCO[] scoShortcuts(Arrayable $filter = null, Arrayable $sorter = null) Get SCO Shurcuts to SCO
- *         diffrent types.
+ * @method static SCO[] scoShortcuts(Arrayable $filter = null, Arrayable $sorter = null) Get SCO Shortcuts to SCO
+ *         different types.
  * @method static bool scoMove(int $scoId, int $folderId) Move the SCO to other Folder
  * @method static SCO[] scoContents(int $scoId, Arrayable $filter = null, Arrayable $sorter = null) Get the SCO
  *         Contents from a folder or from other SCO
