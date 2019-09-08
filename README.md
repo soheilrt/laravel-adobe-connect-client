@@ -1,11 +1,11 @@
 # Laravel Adobe Connect Client 
-* Compatible with adobe connect version >= V9.4.5 
-* Requires Laravel >= 5.8.* & 
 
-Thanks to [brunogasparetto](https://github.com/brunogasparetto/AdobeConnectClient) for providing adobe connect API.
+## Requirements
+* PHP 7.2 and above
+* Adobe Connect API >= V9.4.5
+* Laravel v5.8 OR v6.0
 
-This package inspired from [brunogasparetto's](https://github.com/brunogasparetto/AdobeConnectClient) package
-and an extend version from [AdobeConnectClient](https://github.com/soheilrt/AdobeConnectClient) API for laravel application.
+This package is an extended version of [AdobeConnectClient](https://github.com/soheilrt/AdobeConnectClient) for laravel applications.
 
 ## Installation
 you can install this package through [packagist](https://packagist.org/packages/soheilrt/laravel-adobe-connect-client)
