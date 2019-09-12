@@ -51,7 +51,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $this->app->bind('common-info', function () use ($entities) {
             return new $entities["common-info"]();
         });
-        $this->app->singleton('adobe-connect', function () {
+        $this->app->bind('adobe-connect', function () {
             return App::make(Client::class);
         });
 
