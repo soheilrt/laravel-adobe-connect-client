@@ -56,17 +56,17 @@ class AdobeConnectServiceProviderTest extends TestCase
 
     public function test_client_root_facade()
     {
-        $root=Client::getFacadeRoot();
-        $this->assertInstanceOf(\Soheilrt\AdobeConnectClient\Client\Client::class,$root);
+        $root = Client::getFacadeRoot();
+        $this->assertInstanceOf(\Soheilrt\AdobeConnectClient\Client\Client::class, $root);
     }
 
     public function test_session_cache()
     {
-        $session="sessionstring";
-        $driver=config('adobeConnect.session-cache.driver');
-        $key=config('adobeConnect.session-cache.key');
-        Cache::store($driver)->put($key,$session,20);
-        $this->assertEquals($session,Client::getSession());
+        $session = "sessionstring";
+        $driver = config('adobeConnect.session-cache.driver');
+        $key = config('adobeConnect.session-cache.key');
+        Cache::store($driver)->put($key, $session, 20);
+        $this->assertEquals($session, Client::getSession());
     }
 
     /**

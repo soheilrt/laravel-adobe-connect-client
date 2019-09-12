@@ -75,7 +75,7 @@ return [
              * false = application will not save session info and you have to login manually each time you want to
              * use adobe connect client.
              */
-            'enabled' => env("ADOBE_CONNECT_CACHE_ENABLED",true),
+            'enabled' => env("ADOBE_CONNECT_CACHE_ENABLED", true),
 
             /**
              * -------------------
