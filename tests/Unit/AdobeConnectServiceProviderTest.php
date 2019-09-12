@@ -15,7 +15,7 @@ use Soheilrt\AdobeConnectClient\Facades\SCO;
 use Soheilrt\AdobeConnectClient\Facades\SCORecord;
 use Soheilrt\AdobeConnectClient\Tests\TestCase;
 
-class facadesTest extends TestCase
+class AdobeConnectServiceProviderTest extends TestCase
 {
     public function testScoFacade()
     {
