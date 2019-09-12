@@ -5,8 +5,8 @@ namespace Soheilrt\AdobeConnectClient\Tests\Unit;
 
 
 use DateTimeImmutable;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
+use Psr\SimpleCache\InvalidArgumentException;
 use Soheilrt\AdobeConnectClient\Facades\Client;
 use Soheilrt\AdobeConnectClient\Facades\CommonInfo;
 use Soheilrt\AdobeConnectClient\Facades\Permission;
@@ -69,4 +69,17 @@ class AdobeConnectServiceProviderTest extends TestCase
         $this->assertEquals($session,Client::getSession());
     }
 
+    /**
+     * @test
+     * @throws InvalidArgumentException
+     */
+    public function testCacheResetOnEmptyCache()
+    {
+        $driver = config('adobeConnect.session-cache.driver');
+        $key = config('adobeConnect.session-cache.key');
+        Cache::store($driver)->put($key, '', 20);
+        $client=Client::getFacadeRoot();
+        $this->assertFalse(Cache::store($driver)->has($key));
+        $this->assertEmpty($client->getSession());
+    }
 }

@@ -2,10 +2,12 @@
 
 namespace Soheilrt\AdobeConnectClient;
 
+use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
+use Psr\SimpleCache\InvalidArgumentException;
 use Soheilrt\AdobeConnectClient\Client\Client;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Connection;
 
@@ -70,6 +72,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     /**
      * login adobe client in case of there is no session configured
      *
+     * @throws InvalidArgumentException
      * @return Client
      */
     private function processClient()
@@ -91,22 +94,33 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
      *
      * @param Client $client
      *
+     * @throws InvalidArgumentException
      * @return void
      */
     private function loginClient(Client $client)
     {
         $config = $this->getAdobeConfig();
-        $driver = $this->getCacheDriver();
+        $cacheRepository = Cache::store($this->getCacheDriver());
 
-        $session = Cache::store($driver)->remember(
-            $config['session-cache']['key'],
-            $config['session-cache']['timeout'],
-            function () use ($config, $client) {
-                $client->login($config["user-name"], $config["password"]);
-                return $client->getSession();
-            });
+        // this statement will check for session cache value and sees if there is
+        // any valid value(not empty) session available inside cache or not. If there isn't any valid cache it
+        // will send a login request and then put client session string inside cache on successful login.
+        //on the other side if there is any valid session inside cache, it'll use it for creating client instance
+        // instead of sending login request to adobe server
+        if ($this->ValidateCache($cacheRepository, $config['session-cache']['key'])) {
+            $client->setSession($cacheRepository->get($config["session-cache"]["key"]));
+        } else {
 
-        $client->setSession($session);
+            $client->login($config["user-name"], $config["password"]);
+            //store client session string if login was successful
+            if ($client->getSession()) {
+                $cacheRepository->put(
+                    $config['session-cache']['key'],
+                    $client->getSession(),
+                    $config['session-cache']['timeout']
+                );
+            }
+        }
     }
 
     /**
@@ -121,6 +135,25 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
             return $driver;
         }
         return $this->app["config"]->get("cache.default");
+    }
+
+    /**
+     * validate cached session based on it's value
+     * tries to remove cache value in case of an empty value stored on cache.
+     *
+     * @param Repository $driver
+     * @param string     $key
+     *
+     * @throws InvalidArgumentException
+     * @return bool
+     */
+    private function ValidateCache(Repository $driver, string $key)
+    {
+        $status = empty($driver->get($key));
+        if ($status) {
+            $driver->forget($key);
+        }
+        return !$status;
     }
 
     /**
