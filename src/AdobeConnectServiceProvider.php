@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Soheilrt\AdobeConnectClient\Client\Client;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Connection;
-use Soheilrt\AdobeConnectClient\Facades\CommonInfo;
-use Soheilrt\AdobeConnectClient\Facades\Permission;
-use Soheilrt\AdobeConnectClient\Facades\Principal;
-use Soheilrt\AdobeConnectClient\Facades\SCO;
-use Soheilrt\AdobeConnectClient\Facades\SCORecord;
 
 class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -148,12 +143,12 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     public function provides()
     {
         return [
-            SCORecord::class,
-            Principal::class,
-            Permission::class,
-            CommonInfo::class,
             Client::class,
-            SCO::class,
+            'sco-record',
+            'principal',
+            'permission',
+            'common-info',
+            'sco',
             'adobe-connect'
         ];
     }
