@@ -102,6 +102,7 @@ return [
              *
              * session key will keep for 4 days form first login by default. you can increase session expiration time
              * through adobe connect admin panel and after that you can increase it from env/config file.
+             *
              * @see https://helpx.adobe.com/adobe-connect/installconfigure/configuring-session-timeout-value.html
              *
              * NOTE: Since laravel 5.8 gets cache timeout in seconds you should consider expiration time in second

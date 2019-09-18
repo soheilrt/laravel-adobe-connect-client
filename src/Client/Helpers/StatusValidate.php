@@ -89,15 +89,16 @@ abstract class StatusValidate
     /**
      *
      *
-     * @param string $statusCode
+     * @param string      $statusCode
      * @param null|string $subCode
      * @param null|string $field
+     *
      * @return mixed|void
      */
     private static function getExceptionMessage($statusCode, $subCode = null, $field = null)
     {
         $codes = [
-            self::STATUS_NO_DATA =>
+            self::STATUS_NO_DATA       =>
                 'There is no data available (in response to an action that would normally result in returning data). ' .
                 'Usually indicates that there is no item with the ID you specified. ' .
                 'To resolve the error, change the specified ID to that of an item that exists.',
@@ -105,32 +106,32 @@ abstract class StatusValidate
                 'multiple results. For example, if there are multiple users with the same user name and password, ' .
                 'and you call the login action using that user name and password as parameters, ' .
                 'the system cannot determine which user to log you in as, so it returns a too-much-data error.',
-            self::STATUS_NO_ACCESS => [
-                'account-expired' => 'The account has expired.',
-                'denied' => 'Based on the supplied credentials, you don’t have permission to call the action.',
-                'no-login' => 'The user is not logged in. To resolve the error, log in (using the login action) ' .
+            self::STATUS_NO_ACCESS     => [
+                'account-expired'      => 'The account has expired.',
+                'denied'               => 'Based on the supplied credentials, you don’t have permission to call the action.',
+                'no-login'             => 'The user is not logged in. To resolve the error, log in (using the login action) ' .
                     'before you make the call.',
-                'illegalparent' => 'The specified acl - id is not a seminar or an unknown issue occured while ' .
+                'illegalparent'        => 'The specified acl - id is not a seminar or an unknown issue occured while ' .
                     'retrieving the quota for that seminar.',
-                'no-quota' => 'The account limits have been reached or exceeded.',
-                'not-available' => 'The required resource is unavailable.',
-                'not-secure' => 'You must use SSL to call this action.',
-                'pending-activation' => 'The account is not yet activated.',
-                'pending-license' => 'The account’s license agreement has not been settled.',
-                'sco-expired' => 'The course or tracking content has expired.',
-                'sco-not-started' => 'The meeting or course has not started.',
+                'no-quota'             => 'The account limits have been reached or exceeded.',
+                'not-available'        => 'The required resource is unavailable.',
+                'not-secure'           => 'You must use SSL to call this action.',
+                'pending-activation'   => 'The account is not yet activated.',
+                'pending-license'      => 'The account’s license agreement has not been settled.',
+                'sco-expired'          => 'The course or tracking content has expired.',
+                'sco-not-started'      => 'The meeting or course has not started.',
                 'valuelessthanorequal' => 'Value is not a valid integer or is greater than the allowed license quota ' .
                     'for that seminar.',
             ],
-            self::STATUS_INVALID => [
-                'duplicate' => 'The call attempted to add a duplicate item on %s in a context where uniqueness is ' .
+            self::STATUS_INVALID       => [
+                'duplicate'         => 'The call attempted to add a duplicate item on %s in a context where uniqueness is ' .
                     'required.',
-                'format' => 'passed %s parameter had the wrong format.',
+                'format'            => 'passed %s parameter had the wrong format.',
                 'illegal-operation' => 'The requested operation on %s violates integrity rules ' .
                     '(for example, moving a folder into itself).',
-                'missing' => 'A required parameter %s is missing.',
-                'no-such-item' => 'The requested %s does not exist.',
-                'range' => 'The value of %s is outside the permitted range of values.'
+                'missing'           => 'A required parameter %s is missing.',
+                'no-such-item'      => 'The requested %s does not exist.',
+                'range'             => 'The value of %s is outside the permitted range of values.'
             ]
         ];
 

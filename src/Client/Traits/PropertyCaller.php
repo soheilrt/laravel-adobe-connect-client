@@ -94,8 +94,8 @@ trait PropertyCaller
     /**
      * Determine if user called a setter method and passed.
      *
-     * @param string $name method name
-     * @param        $arguments
+     * @param string   $name method name
+     * @param          $arguments
      *
      * @return bool
      */

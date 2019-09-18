@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * The recording archive from a SCO.
+ *
  * @see \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord setScoId()
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord setSourceScoId()
