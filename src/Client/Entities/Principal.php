@@ -34,16 +34,17 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  * @property bool|string|mixed $send_email    only on create a user
  * @property bool|string|mixed $is_member     only on create a user . Indicates if the user is a member of the group (@see \AdobeConnectClient\Commands\PrincipalList)
  *
- * @method  $this setDisplayId($value)
- * @method  $this setPrincipalId($value)
- * @method  $this setTrainingGroupId($value)
- * @method  $this setAccountId($value)
- * @method  $this setLogin($value)
- * @method  $this setPermissionId($value) @see Permission::PRINCIPAL_* constants
- * @method  $this setDescription($value)  The new group’s description. Use only when creating a new group.
- * @method  $this setEmail($value) Only for user
- * @method  $this setPassword($value) Only on create a user
- * @method  $this setIsEcommerece($value)
+ *
+ * @method  Principal setDisplayId($value)
+ * @method  Principal setPrincipalId($value)
+ * @method  Principal setTrainingGroupId($value)
+ * @method  Principal setAccountId($value)
+ * @method  Principal setLogin($value)
+ * @method  Principal setPermissionId($value) @see Permission::PRINCIPAL_* constants
+ * @method  Principal setDescription($value)  The new group’s description. Use only when creating a new group.
+ * @method  Principal setEmail($value) Only for user
+ * @method  Principal setPassword($value) Only on create a user
+ * @method  Principal setIsEcommerece($value)
  * @method int|string|mixed getName()
  * @method int|string|mixed getDisplayUid()
  * @method int|string|mixed getPrincipalId()
