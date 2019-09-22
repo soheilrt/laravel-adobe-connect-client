@@ -11,7 +11,7 @@ class ConverterXML implements ConverterInterface
     /**
      * {@inheritdoc}
      */
-    public static function convert(ResponseInterface $response)
+    public static function convert(ResponseInterface $response): array
     {
         $xml = simplexml_load_string($response->getBody());
 
@@ -47,7 +47,7 @@ class ConverterXML implements ConverterInterface
      *
      * @return array
      */
-    protected static function normalize($arr)
+    protected static function normalize($arr): array
     {
         $ret = [];
 

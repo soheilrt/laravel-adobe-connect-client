@@ -64,7 +64,7 @@ trait Setter
      *
      * @return bool
      */
-    private function hasGetter($name)
+    private function hasGetter($name): bool
     {
         return method_exists($this, $this->getQualifiedGetterMethodName($name));
     }
@@ -76,7 +76,7 @@ trait Setter
      *
      * @return string
      */
-    private function getQualifiedGetterMethodName($name)
+    private function getQualifiedGetterMethodName($name): string
     {
         return 'get' . SCT::toUpperCamelCase($name);
     }
@@ -89,7 +89,7 @@ trait Setter
      * @throws ReflectionException
      * @return bool
      */
-    private function methodHasRequiredParameter($method)
+    private function methodHasRequiredParameter($method): bool
     {
         return (new ReflectionMethod($this, $method))->getNumberOfRequiredParameters() > 0;
     }
@@ -99,7 +99,7 @@ trait Setter
      *
      * @return bool
      */
-    private function hasProperty($name)
+    private function hasProperty($name): bool
     {
         return property_exists($this, $name);
     }
@@ -111,7 +111,7 @@ trait Setter
      *
      * @return string
      */
-    private function getQualifiedAttributeName($name)
+    private function getQualifiedAttributeName($name): string
     {
         return SCT::toCamelCase($name);
     }
@@ -123,7 +123,7 @@ trait Setter
      *
      * @return string
      */
-    private function getQualifiedSetterMethodName($name)
+    private function getQualifiedSetterMethodName($name): string
     {
         return 'set' . SCT::toUpperCamelCase($name);
     }

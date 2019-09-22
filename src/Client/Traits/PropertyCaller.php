@@ -36,7 +36,7 @@ trait PropertyCaller
      *
      * @return bool
      */
-    final private function isCallableGetter($name, $arguments)
+    private function isCallableGetter($name, $arguments): bool
     {
         return $this->isMatchWithGetterMethodPattern($name, $arguments) && $this->hasMagicGetter();
     }
@@ -49,7 +49,7 @@ trait PropertyCaller
      *
      * @return bool
      */
-    final private function isMatchWithGetterMethodPattern($name, $arguments)
+    private function isMatchWithGetterMethodPattern($name, $arguments): bool
     {
         return preg_match("/(?<=^get)(\w+)/m", $name) && count($arguments) == 0;
     }
@@ -59,7 +59,7 @@ trait PropertyCaller
      *
      * @return bool
      */
-    final private function hasMagicGetter()
+    private function hasMagicGetter(): bool
     {
         return method_exists($this, '__get');
     }
@@ -71,7 +71,7 @@ trait PropertyCaller
      *
      * @return mixed
      */
-    final private function getAttributeName($name)
+    private function getAttributeName($name)
     {
         preg_match("/(?<=^get|^set)(\w+)/m", $name, $matches);
 
@@ -86,7 +86,7 @@ trait PropertyCaller
      *
      * @return bool
      */
-    final private function isCallableSetter($name, $arguments)
+    private function isCallableSetter($name, $arguments): bool
     {
         return $this->isMatchWithSetterMethodPattern($name, $arguments) and $this->hasMagicSetter();
     }
@@ -99,7 +99,7 @@ trait PropertyCaller
      *
      * @return bool
      */
-    final private function isMatchWithSetterMethodPattern($name, $arguments)
+    private function isMatchWithSetterMethodPattern($name, $arguments): bool
     {
         return preg_match("/(?<=^set)(\w+)/m", $name) && count($arguments) == 1;
     }
@@ -109,7 +109,7 @@ trait PropertyCaller
      *
      * @return bool
      */
-    final private function hasMagicSetter()
+    private function hasMagicSetter(): bool
     {
         return method_exists($this, '__set');
     }

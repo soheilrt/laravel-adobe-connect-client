@@ -140,7 +140,7 @@ class Permission implements ArrayableInterface
      */
     const PRINCIPAL_DENIED = 'denied';
 
-    public static function instance()
+    public static function instance(): Permission
     {
         return new static();
     }

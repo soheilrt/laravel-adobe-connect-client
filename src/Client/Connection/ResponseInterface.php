@@ -15,14 +15,14 @@ interface ResponseInterface
      *
      * @return int
      */
-    public function getStatusCode();
+    public function getStatusCode(): int;
 
     /**
      * Gets the body of the message.
      *
      * @return StreamInterface
      */
-    public function getBody();
+    public function getBody(): StreamInterface;
 
     /**
      * Retrieves a message header value by the given case-insensitive name.
@@ -37,7 +37,7 @@ interface ResponseInterface
      *
      * @return array An array of string values as provided for the given header.
      */
-    public function getHeader($name);
+    public function getHeader($name): array;
 
     /**
      * Retrieves all message header values.
@@ -50,7 +50,7 @@ interface ResponseInterface
      *
      * @return array An associative array
      */
-    public function getHeaders();
+    public function getHeaders(): array;
 
     /**
      * Retrieves a comma-separated string of the values for a single header.

@@ -184,7 +184,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public static function instance()
+    public static function instance(): Principal
     {
         return new static();
     }
@@ -196,7 +196,7 @@ class Principal implements ArrayableInterface
      *
      * @todo Returns fields for all types
      */
-    public function toArray()
+    public function toArray(): array
     {
         $parameters = [];
 
@@ -229,7 +229,7 @@ class Principal implements ArrayableInterface
      *
      * @return string[]
      */
-    protected function fieldsForUser()
+    protected function fieldsForUser(): array
     {
         return [
             'hasChildren',
@@ -249,7 +249,7 @@ class Principal implements ArrayableInterface
      *
      * @return string[]
      */
-    protected function fieldsForGroup()
+    protected function fieldsForGroup(): array
     {
         return [
             'hasChildren',
@@ -265,7 +265,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setName($name)
+    public function setName($name): Principal
     {
         $this->attributes['name'] = (string) $name;
         $this->fixNameByType();
@@ -279,7 +279,7 @@ class Principal implements ArrayableInterface
      * The user type has firstName and lastName, but some actions from Adobe Connect returns the
      * Principal user type with name, so we need fix it.
      */
-    protected function fixNameByType()
+    protected function fixNameByType(): void
     {
         if ($this->type === self::TYPE_GROUP and
             !isset($this->attributes['name']) and
@@ -311,7 +311,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setIsPrimary($isPrimary)
+    public function setIsPrimary($isPrimary): Principal
     {
         $this->attributes['isPrimary'] = VT::toBool($isPrimary);
 
@@ -329,7 +329,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setType($type)
+    public function setType($type): Principal
     {
         $this->attributes['type'] = (string) $type;
 
@@ -366,7 +366,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setHasChildren($hasChildren)
+    public function setHasChildren($hasChildren): Principal
     {
         $this->attributes['hasChildren'] = VT::toBool($hasChildren);
 
@@ -378,7 +378,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setIsEcommerce($isEcommerce)
+    public function setIsEcommerce($isEcommerce): Principal
     {
         $this->attributes['isEcommerce'] = VT::toBool($isEcommerce);
 
@@ -390,7 +390,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setIsHidden($isHidden)
+    public function setIsHidden($isHidden): Principal
     {
         $this->attributes['isHidden'] = VT::toBool($isHidden);
 
@@ -402,7 +402,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setDisabled($disabled)
+    public function setDisabled($disabled): Principal
     {
         $this->attributes['disabled'] = VT::toBool($disabled);
 
@@ -414,7 +414,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): Principal
     {
         $this->attributes['firstName'] = (string) $firstName;
         $this->fixNameByType();
@@ -427,7 +427,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName): Principal
     {
         $this->attributes['lastName'] = (string) $lastName;
         $this->fixNameByType();
@@ -440,7 +440,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setSendEmail($sendEmail)
+    public function setSendEmail($sendEmail): Principal
     {
         $this->attributes['sendEmail'] = VT::toBool($sendEmail);
 
@@ -452,7 +452,7 @@ class Principal implements ArrayableInterface
      *
      * @return Principal
      */
-    public function setIsMember($isMember)
+    public function setIsMember($isMember): Principal
     {
         $this->attributes['isMember'] = VT::toBool($isMember);
 

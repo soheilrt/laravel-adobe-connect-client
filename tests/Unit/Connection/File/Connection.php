@@ -5,6 +5,7 @@ namespace Soheilrt\AdobeConnectClient\Tests\Unit\Connection\File;
 use Soheilrt\AdobeConnectClient\Client\Connection\ConnectionInterface;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Response;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Stream;
+use Soheilrt\AdobeConnectClient\Client\Connection\ResponseInterface;
 
 /**
  * Mock the WS response.
@@ -28,7 +29,7 @@ class Connection implements ConnectionInterface
         $this->routes = include __DIR__ . '/routes.php';
     }
 
-    public function getSessionString()
+    public function getSessionString(): string
     {
         return $this->session;
     }
@@ -36,7 +37,7 @@ class Connection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function get(array $queryParams = [])
+    public function get(array $queryParams = []): ResponseInterface
     {
         $resourceFile = $this->getResourcePath($queryParams);
 
@@ -50,7 +51,7 @@ class Connection implements ConnectionInterface
         );
     }
 
-    private function getResourcePath(array $queryParams)
+    private function getResourcePath(array $queryParams): string
     {
         $action = $queryParams['action'];
         ksort($queryParams);
@@ -66,7 +67,7 @@ class Connection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function post(array $postParams, array $queryParams = [])
+    public function post(array $postParams, array $queryParams = []): ResponseInterface
     {
         $resourceFile = $this->getResourcePath($queryParams);
 

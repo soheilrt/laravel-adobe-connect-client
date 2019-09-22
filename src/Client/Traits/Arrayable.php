@@ -20,7 +20,7 @@ trait Arrayable
      *
      * @return string[][]
      */
-    public function toArray($trimNull = true)
+    public function toArray($trimNull = true): array
     {
         if (isset($this->attributes) && is_array($this->attributes)) {
             return $this->toArrayHyphen($this->attributes, $trimNull);
@@ -29,7 +29,7 @@ trait Arrayable
         return $this->toArrayHyphen($this, $trimNull);
     }
 
-    private function toArrayHyphen($array, $trimNull)
+    private function toArrayHyphen($array, $trimNull): array
     {
         $hyphen_array = [];
         foreach ($array as $key => $value) {

@@ -15,5 +15,5 @@ interface ArrayableInterface
      *
      * @return string[]
      */
-    public function toArray();
+    public function toArray(): array;
 }

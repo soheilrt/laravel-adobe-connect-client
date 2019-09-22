@@ -21,7 +21,7 @@ class Parameter implements ArrayableInterface
      *
      * @return Parameter
      */
-    public static function instance()
+    public static function instance(): Parameter
     {
         return new static();
     }
@@ -34,7 +34,7 @@ class Parameter implements ArrayableInterface
      *
      * @return Parameter Fluent Interface
      */
-    public function set($parameter, $value)
+    public function set($parameter, $value): Parameter
     {
         $this->parameters[SCT::toHyphen($parameter)] = VT::toString($value);
 
@@ -48,7 +48,7 @@ class Parameter implements ArrayableInterface
      *
      * @return Parameter Fluent Interface
      */
-    public function remove($parameter)
+    public function remove($parameter): Parameter
     {
         $parameter = SCT::toHyphen($parameter);
 
@@ -67,7 +67,7 @@ class Parameter implements ArrayableInterface
      *
      * @return string[]
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->parameters;
     }

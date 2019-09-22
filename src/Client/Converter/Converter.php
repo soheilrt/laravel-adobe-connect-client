@@ -16,7 +16,7 @@ abstract class Converter
      *
      * @return array An associative array
      */
-    public static function convert(ResponseInterface $response)
+    public static function convert(ResponseInterface $response): array
     {
         $type = $response->getHeaderLine('Content-Type');
 

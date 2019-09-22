@@ -27,7 +27,7 @@ class Stream implements StreamInterface
     /**
      * {@inheritdoc}
      */
-    public function __toString()
+    public function __toString(): ?string
     {
         return $this->content;
     }

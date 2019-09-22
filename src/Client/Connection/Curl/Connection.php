@@ -5,6 +5,7 @@ namespace Soheilrt\AdobeConnectClient\Client\Connection\Curl;
 use CURLFile;
 use InvalidArgumentException;
 use Soheilrt\AdobeConnectClient\Client\Connection\ConnectionInterface;
+use Soheilrt\AdobeConnectClient\Client\Connection\ResponseInterface;
 use SplFileInfo;
 use UnexpectedValueException;
 
@@ -49,7 +50,7 @@ class Connection implements ConnectionInterface
      *
      * @throws InvalidArgumentException if $host is not a valid URL with scheme
      */
-    public function setHost($host)
+    public function setHost($host): void
     {
         $host = filter_var(trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
 
@@ -64,7 +65,7 @@ class Connection implements ConnectionInterface
      *
      * @param array $config Associative array. Items as Option => Value
      */
-    protected function setConfig(array $config)
+    protected function setConfig(array $config): void
     {
         //get default configuration value and merge them with user given values in case that user
         //if any of given values are missing from below were absent it'll use default config as given below
@@ -86,7 +87,7 @@ class Connection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function get(array $queryParams = [])
+    public function get(array $queryParams = []): ResponseInterface
     {
         $ch = $this->prepareCurl($queryParams);
         $body = curl_exec($ch);
@@ -127,7 +128,7 @@ class Connection implements ConnectionInterface
      *
      * @return string
      */
-    protected function getFullURL(array $queryParams)
+    protected function getFullURL(array $queryParams): string
     {
         return empty($queryParams)
             ? $this->host
@@ -137,7 +138,7 @@ class Connection implements ConnectionInterface
     /**
      * {@inheritdoc}
      */
-    public function post(array $postParams, array $queryParams = [])
+    public function post(array $postParams, array $queryParams = []):ResponseInterface
     {
         $ch = $this->prepareCurl($queryParams);
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -163,7 +164,7 @@ class Connection implements ConnectionInterface
      *
      * @return array
      */
-    protected function convertFileParams(array $params)
+    protected function convertFileParams(array $params): array
     {
         foreach ($params as $param => $value) {
             $fileInfo = $this->fileInfo($value);
@@ -186,7 +187,7 @@ class Connection implements ConnectionInterface
      *
      * @return array|null Returns null if it's not a valid stream file or SplFileInfo
      */
-    protected function fileInfo($item)
+    protected function fileInfo($item): ?array
     {
         if (is_resource($item)) {
             $streamMeta = stream_get_meta_data($item);
@@ -219,7 +220,7 @@ class Connection implements ConnectionInterface
      *
      * @return int The size of header line
      */
-    protected function extractHeader($curlResource, $headerLine)
+    protected function extractHeader($curlResource, $headerLine):int
     {
         $headerSize = strlen($headerLine);
         $headerLine = trim($headerLine, " \t\n");

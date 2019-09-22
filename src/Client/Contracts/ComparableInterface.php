@@ -14,7 +14,7 @@ interface ComparableInterface
      *
      * @return bool
      */
-    public function compareTo(array $arguments, ComparableInterface ...$object);
+    public function compareTo(array $arguments, ComparableInterface ...$object): bool;
 
 
     /**
@@ -25,5 +25,5 @@ interface ComparableInterface
      *
      * @return bool
      */
-    public function isEqual(array $arguments, ComparableInterface $object);
+    public function isEqual(array $arguments, ComparableInterface $object): bool;
 }

@@ -29,7 +29,7 @@ class Sorter implements ArrayableInterface
      *
      * @return Sorter
      */
-    public static function instance()
+    public static function instance(): Sorter
     {
         return new static();
     }
@@ -41,7 +41,7 @@ class Sorter implements ArrayableInterface
      *
      * @return Sorter
      */
-    public function asc($field)
+    public function asc($field): Sorter
     {
         $this->sorts[SCT::toHyphen($field)] = 'asc';
 
@@ -55,7 +55,7 @@ class Sorter implements ArrayableInterface
      *
      * @return Sorter
      */
-    public function desc($field)
+    public function desc($field): Sorter
     {
         $this->sorts[SCT::toHyphen($field)] = 'desc';
 
@@ -69,7 +69,7 @@ class Sorter implements ArrayableInterface
      *
      * @return Sorter
      */
-    public function removeField($field)
+    public function removeField($field): Sorter
     {
         $field = SCT::toHyphen($field);
 
@@ -88,7 +88,7 @@ class Sorter implements ArrayableInterface
      *
      * @return string[]
      */
-    public function toArray()
+    public function toArray(): array
     {
         if (count($this->sorts) === 1) {
             $order = reset($this->sorts);

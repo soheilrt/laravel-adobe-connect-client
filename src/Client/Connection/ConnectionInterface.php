@@ -18,7 +18,7 @@ interface ConnectionInterface
      *
      * @return ResponseInterface
      */
-    public function get(array $queryParams = []);
+    public function get(array $queryParams = []): ResponseInterface;
 
     /**
      * Send a POST request.
@@ -33,5 +33,5 @@ interface ConnectionInterface
      *
      * @return ResponseInterface
      */
-    public function post(array $postParams, array $queryParams = []);
+    public function post(array $postParams, array $queryParams = []): ResponseInterface;
 }

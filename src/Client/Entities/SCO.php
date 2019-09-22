@@ -104,7 +104,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public static function instance()
+    public static function instance(): SCO
     {
         return new static();
     }
@@ -116,7 +116,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setDisabled($disabled)
+    public function setDisabled($disabled): SCO
     {
         $this->attributes['disabled'] = VT::toBool($disabled);
 
@@ -132,7 +132,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated($dateCreated): SCO
     {
         $this->attributes['dateCreated'] = VT::toDateTimeImmutable($dateCreated);
 
@@ -148,7 +148,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setDateModified($dateModified)
+    public function setDateModified($dateModified): SCO
     {
         $this->attributes['dateModified'] = VT::toDateTimeImmutable($dateModified);
 
@@ -164,7 +164,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setDateBegin($dateBegin)
+    public function setDateBegin($dateBegin): SCO
     {
         $this->attributes['dateBegin'] = VT::toDateTimeImmutable($dateBegin);
 
@@ -180,7 +180,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setDateEnd($dateEnd)
+    public function setDateEnd($dateEnd): SCO
     {
         $this->attributes['dateEnd'] = VT::toDateTimeImmutable($dateEnd);
 
@@ -194,7 +194,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
+    public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked): SCO
     {
         $this->attributes['meetingPodsLayoutsLocked'] = VT::toBool($meetingPodsLayoutsLocked);
 
@@ -208,7 +208,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public function setUpdateLinkedItem($updateLinkedItem)
+    public function setUpdateLinkedItem($updateLinkedItem): SCO
     {
         $this->attributes['updateLinkedItem'] = VT::toBool($updateLinkedItem);
 
@@ -220,7 +220,7 @@ class SCO implements ArrayableInterface
      *
      * @return bool
      */
-    public function getUpdateLinkedItem()
+    public function getUpdateLinkedItem(): bool
     {
         return isset($this->attributes['updateLinkedItem']) ? $this->attributes['updateLinkedItem'] : false;
     }

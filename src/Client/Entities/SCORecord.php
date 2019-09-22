@@ -44,7 +44,7 @@ class SCORecord
      *
      * @return void
      */
-    public function setIsFolder($isFolder)
+    public function setIsFolder($isFolder): void
     {
         $this->attributes['isFolder'] = VT::toBool($isFolder);
     }
@@ -56,7 +56,7 @@ class SCORecord
      *
      * @throws Exception
      */
-    public function setDateBegin($dateBegin)
+    public function setDateBegin($dateBegin): void
     {
         $this->attributes['dateBegin'] = VT::toDateTimeImmutable($dateBegin);
     }
@@ -68,7 +68,7 @@ class SCORecord
      *
      * @throws Exception
      */
-    public function setDateEnd($dateEnd)
+    public function setDateEnd($dateEnd): void
     {
         $this->attributes['dateEnd'] = VT::toDateTimeImmutable($dateEnd);
     }
@@ -80,7 +80,7 @@ class SCORecord
      *
      * @throws Exception
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated($dateCreated): void
     {
         $this->attributes['dateCreated'] = VT::toDateTimeImmutable($dateCreated);
     }
@@ -92,7 +92,7 @@ class SCORecord
      *
      * @throws Exception
      */
-    public function setDateModified($dateModified)
+    public function setDateModified($dateModified): void
     {
         $this->attributes['dateModified'] = VT::toDateTimeImmutable($dateModified);
     }
@@ -104,7 +104,7 @@ class SCORecord
      *
      * @throws InvalidArgumentException
      */
-    public function setDuration($duration)
+    public function setDuration($duration): void
     {
         if (is_string($duration)) {
             $duration = $this->timeStringToDateInterval($duration);
@@ -121,7 +121,7 @@ class SCORecord
      *
      * @return DateInterval
      */
-    protected function timeStringToDateInterval($timeString)
+    protected function timeStringToDateInterval($timeString): ?DateInterval
     {
         try {
             return new DateInterval(

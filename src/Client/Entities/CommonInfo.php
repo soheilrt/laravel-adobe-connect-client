@@ -35,7 +35,7 @@ class CommonInfo
      *
      * @return CommonInfo
      */
-    public function setDate($date)
+    public function setDate($date): CommonInfo
     {
         $this->attributes['date'] = VT::toDateTimeImmutable($date);
 

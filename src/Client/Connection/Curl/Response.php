@@ -45,7 +45,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->statusCode;
     }
@@ -53,7 +53,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getBody()
+    public function getBody(): StreamInterface
     {
         return $this->body;
     }
@@ -61,7 +61,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
@@ -69,7 +69,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getHeaderLine($name)
+    public function getHeaderLine($name): string
     {
         return implode(', ', $this->getHeader($name));
     }
@@ -77,7 +77,7 @@ class Response implements ResponseInterface
     /**
      * {@inheritdoc}
      */
-    public function getHeader($name)
+    public function getHeader($name): array
     {
         if (isset($this->headers[$name])) {
             return $this->headers[$name];
@@ -100,7 +100,7 @@ class Response implements ResponseInterface
      *
      * @return string
      */
-    protected function normalizeString($string)
+    protected function normalizeString($string): string
     {
         return mb_strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $string));
     }

@@ -32,5 +32,5 @@ interface ConverterInterface
      *
      * @return array
      */
-    public static function convert(ResponseInterface $response);
+    public static function convert(ResponseInterface $response): array;
 }

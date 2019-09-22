@@ -32,7 +32,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter
      */
-    public static function instance()
+    public static function instance(): Filter
     {
         return new static();
     }
@@ -45,7 +45,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function equals($field, $value)
+    public function equals($field, $value): Filter
     {
         $this->setFilter('', $field, $value);
 
@@ -59,7 +59,7 @@ class Filter implements ArrayableInterface
      * @param string $field
      * @param mixed  $value
      */
-    protected function setFilter($operator, $field, $value)
+    protected function setFilter($operator, $field, $value): void
     {
         $filterName = $this->prefix
             . '-'
@@ -77,7 +77,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function like($field, $value)
+    public function like($field, $value): Filter
     {
         $this->setFilter('like', $field, $value);
 
@@ -92,7 +92,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function out($field, $value)
+    public function out($field, $value): Filter
     {
         $this->setFilter('out', $field, $value);
 
@@ -106,7 +106,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function rows($limit)
+    public function rows($limit): Filter
     {
         $this->setFilter('', 'rows', $limit);
 
@@ -120,7 +120,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function start($offset)
+    public function start($offset): Filter
     {
         $this->setFilter('', 'start', $offset);
 
@@ -136,7 +136,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function dateAfter($dateField, DateTimeInterface $date, $inclusive = true)
+    public function dateAfter($dateField, DateTimeInterface $date, $inclusive = true): Filter
     {
         $this->setFilter(
             $inclusive ? 'gte' : 'gt',
@@ -156,7 +156,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function dateBefore($dateField, DateTimeInterface $date, $inclusive = true)
+    public function dateBefore($dateField, DateTimeInterface $date, $inclusive = true): Filter
     {
         $this->setFilter(
             $inclusive ? 'lte' : 'lt',
@@ -174,7 +174,7 @@ class Filter implements ArrayableInterface
      *
      * @return Filter Fluent Interface
      */
-    public function isMember($value)
+    public function isMember($value): Filter
     {
         $this->setFilter('', 'ismember', $value);
 
@@ -188,12 +188,12 @@ class Filter implements ArrayableInterface
      *
      * @return Filter
      */
-    public function removeField($field)
+    public function removeField($field): Filter
     {
         $field = SCT::toHyphen($field);
         $this->filters = array_filter(
             $this->filters,
-            function ($filter) use ($field) {
+            static function ($filter) use ($field) {
                 return mb_strpos($filter, $field) === false;
             },
             ARRAY_FILTER_USE_KEY
@@ -210,7 +210,7 @@ class Filter implements ArrayableInterface
      *
      * @return string[]
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->filters;
     }
