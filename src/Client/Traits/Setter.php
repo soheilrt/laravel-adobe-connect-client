@@ -32,14 +32,14 @@ trait Setter
 
         $QualifiedAttributeName = $this->getQualifiedAttributeName($name);
 
-        return isset($this->attributes[$QualifiedAttributeName]) ? $this->attributes[$QualifiedAttributeName] : null;
+        return $this->attributes[$QualifiedAttributeName] ?? null;
     }
 
     /**
      * magic setter function for attributes that don't exist or inaccessible.
      *
-     * @param $name
-     * @param $value
+     * @param string $name
+     * @param mixed  $value
      *
      * @return static
      */

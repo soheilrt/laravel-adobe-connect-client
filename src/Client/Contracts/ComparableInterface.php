@@ -9,8 +9,8 @@ interface ComparableInterface
     /**
      * Compare first argument with all given next arguments
      *
-     * @param array               $arguments
-     * @param ComparableInterface ...$object
+     * @param array                                                             $arguments
+     * @param \Soheilrt\AdobeConnectClient\Client\Contracts\ComparableInterface ...$object
      *
      * @return bool
      */

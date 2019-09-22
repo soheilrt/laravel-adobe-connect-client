@@ -56,7 +56,6 @@ abstract class Command
     /**
      * Executes the command and return a value.
      *
-     * @throws NoAccessException
      * @throws NoDataException
      * @throws TooMuchDataException
      * @throws UnexpectedValueException
@@ -65,6 +64,7 @@ abstract class Command
      * @throws BadMethodCallException
      *
      * @throws InvalidException
+     * @throws NoAccessException
      * @return mixed
      */
     public function execute()
@@ -79,7 +79,6 @@ abstract class Command
     /**
      * Process the command and return a value.
      *
-     * @throws NoAccessException
      * @throws NoDataException
      * @throws TooMuchDataException
      * @throws UnexpectedValueException
@@ -87,6 +86,7 @@ abstract class Command
      * @throws DomainException
      *
      * @throws InvalidException
+     * @throws NoAccessException
      * @return mixed
      */
     abstract protected function process();

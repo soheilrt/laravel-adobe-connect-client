@@ -35,6 +35,41 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  * @property int|string|mixed               $display_seq
  * @property int|string|mixed               $folder_id
  * @property int|string|mixed               $accountId
+ *
+ *
+ * @method bool|string|mixed getDisabled()
+ * @method bool|string|mixed getMeetingPodsLayoutsLocked()
+ * @method string|mixed getIcon()
+ * @method string|mixed getLang()
+ * @method string|mixed getType()
+ * @method string|mixed getVersion()
+ * @method string|mixed getDescription()
+ * @method string|mixed getName()
+ * @method string|mixed getUrlPath()
+ * @method DateTimeImmutable|string|mixed getDateCreated()
+ * @method DateTimeImmutable|string|mixed getDateModified()
+ * @method DateTimeImmutable|string|mixed getDateBegin()
+ * @method DateTimeImmutable|string|mixed getDateEnd()
+ * @method int|string|mixed getMaxRetires()
+ * @method int|string|mixed getScoId()
+ * @method int|string|mixed getSourceScoId()
+ * @method int|string|mixed getDisplaySeq()
+ * @method int|string|mixed getFolderId()
+ * @method int|string|mixed getAccountId()
+ *
+ * @method string|mixed setIcon($value)
+ * @method string|mixed setLang($value)
+ * @method string|mixed setType($value)
+ * @method string|mixed setVersion($value)
+ * @method string|mixed setDescription($value)
+ * @method string|mixed setName($value)
+ * @method string|mixed setUrlPath($value)
+ * @method int|string|mixed setMaxRetires($value)
+ * @method int|string|mixed setScoId($value)
+ * @method int|string|mixed setSourceScoId($value)
+ * @method int|string|mixed setDisplaySeq($value)
+ * @method int|string|mixed setFolderId($value)
+ * @method int|string|mixed setAccountId($value)
  */
 class SCO implements ArrayableInterface
 {

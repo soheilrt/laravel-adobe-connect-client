@@ -32,6 +32,42 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  * @property DateTimeImmutable|mixed $date_created
  * @property DateTimeImmutable|mixed $date_modified
  * @property DateInterval|mixed      $duration
+ *
+ * @method int|string|mixed getScoId()
+ * @method int|string|mixed getSourceScoId()
+ * @method int|string|mixed getFolderId()
+ * @method int|string|mixed getDisplaySeq()
+ * @method int|string|mixed getJobId()
+ * @method int|string|mixed getAccountId()
+ * @method int|string|mixed getEncoderServiceJobProgress()
+ * @method int|string|mixed getNoOfDownloads()
+ * @method int|string|mixed getFileName()
+ * @method string|mixed getType()
+ * @method string|mixed getIcon()
+ * @method string|mixed getJobStatus()
+ * @method string|mixed getName()
+ * @method string|mixed getUrlPath()
+ * @method bool|string|mixed getIsFolder()
+ * @method DateTimeImmutable|mixed getDateBegin()
+ * @method DateTimeImmutable|mixed getDateEnd()
+ * @method DateTimeImmutable|mixed getDateCreated()
+ * @method DateTimeImmutable|mixed getDateModified()
+ * @method DateInterval|mixed getDuration()
+ *
+ * @method int|string|mixed setScoId($value)
+ * @method int|string|mixed setSourceScoId($value)
+ * @method int|string|mixed setFolderId($value)
+ * @method int|string|mixed setDisplaySeq($value)
+ * @method int|string|mixed setJobId($value)
+ * @method int|string|mixed setAccountId($value)
+ * @method int|string|mixed setEncoderServiceJobProgress($value)
+ * @method int|string|mixed setNoOfDownloads($value)
+ * @method int|string|mixed setFileName($value)
+ * @method string|mixed setType($value)
+ * @method string|mixed setIcon($value)
+ * @method string|mixed setJobStatus($value)
+ * @method string|mixed setName($value)
+ * @method string|mixed setUrlPath($value)
  */
 class SCORecord
 {

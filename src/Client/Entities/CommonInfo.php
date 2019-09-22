@@ -21,6 +21,29 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  * @property string|mixed                   $url
  * @property DateTimeImmutable|string|mixed $date
  * @property string|mixed                   $adminHost
+ *
+ * @method string|mixed getLocal()
+ * @method int|string getTimeZoneId() Time Zone ID list in {
+ * @link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
+ * @method string|mixed getCookie()
+ * @method string|mixed getHost()
+ * @method string|mixed getLocalHost()
+ * @method int|string|mixed getAccountId()
+ * @method string|mixed getVersion()
+ * @method string|mixed getUrl()
+ * @method DateTimeImmutable|string|mixed getDate()
+ * @method string|mixed getAdminHost()
+ *
+ * @method string|mixed setLocal($value)
+ * @method int|string setTimeZoneId($value) Time Zone ID list in {
+ * @link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
+ * @method string|mixed setCookie($value)
+ * @method string|mixed setHost($value)
+ * @method string|mixed setLocalHost($value)
+ * @method int|string|mixed setAccountId($value)
+ * @method string|mixed setVersion($value)
+ * @method string|mixed setUrl($value)
+ * @method string|mixed setAdminHost($value)
  */
 class CommonInfo
 {

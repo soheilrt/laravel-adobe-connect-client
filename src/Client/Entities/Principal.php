@@ -45,6 +45,7 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  * @method  Principal setEmail($value) Only for user
  * @method  Principal setPassword($value) Only on create a user
  * @method  Principal setIsEcommerece($value)
+ *
  * @method int|string|mixed getName()
  * @method int|string|mixed getDisplayUid()
  * @method int|string|mixed getPrincipalId()
@@ -52,9 +53,7 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  * @method int|string|mixed getAccountId()
  * @method string|mixed|null getLogin()
  * @method string|mixed|null getType() See {
- *
  * @link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
- *
  * @method string|mixed|null getPermissionId() @see Permission::PRINCIPAL_* constants
  * @method string|mixed|null getDescription() The new group’s description. Use only when creating a new group.
  * @method string|mixed|null getEmail() Only for user
@@ -281,19 +280,21 @@ class Principal implements ArrayableInterface
      */
     protected function fixNameByType(): void
     {
-        if ($this->type === self::TYPE_GROUP and
-            !isset($this->attributes['name']) and
-            isset($this->attributes['firstName']) and
-            isset($this->attributes['lastName'])) {
+        if (
+            $this->type === self::TYPE_GROUP &&
+            !isset($this->attributes['name']) &&
+            isset($this->attributes['firstName'], $this->attributes['lastName'])
+        ) {
             $this->attributes['name'] = $this->attributes['firstName'] . ' ' . $this->attributes['lastName'];
-
             return;
         }
 
-        if ($this->type === self::TYPE_USER and
-            empty($this->attributes['firstName']) and
-            empty($this->attributes['lastName']) and
-            isset($this->attributes['name'])) {
+        if (
+            $this->type === self::TYPE_USER &&
+            empty($this->attributes['firstName']) &&
+            empty($this->attributes['lastName']) &&
+            isset($this->attributes['name'])
+        ) {
             $names = explode(' ', $this->name, 2);
 
             if (count($names) !== 2) {

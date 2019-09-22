@@ -93,9 +93,9 @@ class Client
      * @param string $commandName
      * @param array  $arguments
      *
-     * @throws CommandClassNotFoundException
      * @throws ReflectionException
      *
+     * @throws CommandClassNotFoundException
      * @return mixed
      */
     public function __call($commandName, array $arguments = [])

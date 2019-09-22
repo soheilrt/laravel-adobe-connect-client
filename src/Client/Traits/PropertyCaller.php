@@ -14,6 +14,7 @@ trait PropertyCaller
      * @param $name
      * @param $arguments
      *
+     * @throws \ReflectionException
      * @return static
      */
     public function __call($name, $arguments)
@@ -51,7 +52,7 @@ trait PropertyCaller
      */
     private function isMatchWithGetterMethodPattern($name, $arguments): bool
     {
-        return preg_match("/(?<=^get)(\w+)/m", $name) && count($arguments) == 0;
+        return preg_match("/(?<=^get)(\w+)/m", $name) && count($arguments) === 0;
     }
 
     /**
@@ -101,7 +102,7 @@ trait PropertyCaller
      */
     private function isMatchWithSetterMethodPattern($name, $arguments): bool
     {
-        return preg_match("/(?<=^set)(\w+)/m", $name) && count($arguments) == 1;
+        return preg_match("/(?<=^set)(\w+)/m", $name) && count($arguments) === 1;
     }
 
     /**

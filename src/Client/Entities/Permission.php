@@ -13,7 +13,15 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  *
  * @property int|string|mixed $acl_id       ACL (Access Control List) ID. Usually a SCO ID or Principal ID.
  * @property int|string|mixed $permission_id
- * @property int|string|mixed $principal_id Normally is int, but in special cases is string using the MEETING_* constants
+ * @property int|string|mixed $principal_id Normally is int, but in special cases is string using the MEETING_* constants *
+ *
+ * @method int|string|mixed getAclId()       ACL -Access Control List- ID. Usually a SCO ID or Principal ID.
+ * @method int|string|mixed getPermissionId()
+ * @method int|string|mixed getPrincipalId() Normally is int, but in special cases is string using the MEETING_* constants
+ *
+ * @method int|string|mixed setAclId($value)       ACL (Access Control List) ID. Usually a SCO ID or Principal ID.
+ * @method int|string|mixed setPermissionId($value)
+ * @method int|string|mixed setPrincipalId($value) Normally is int, but in special cases is string using the MEETING_* constants *
  */
 class Permission implements ArrayableInterface
 {

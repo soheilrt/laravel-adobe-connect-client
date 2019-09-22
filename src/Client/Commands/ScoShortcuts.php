@@ -35,11 +35,11 @@ class ScoShortcuts extends Command
     /**
      * Process the command and return a value.
      *
-     * @throws InvalidException
      * @throws NoAccessException
      * @throws NoDataException
      * @throws TooMuchDataException
      *
+     * @throws InvalidException
      * @return SCO[]
      */
     protected function process()

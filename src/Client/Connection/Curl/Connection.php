@@ -89,19 +89,8 @@ class Connection implements ConnectionInterface
      */
     public function get(array $queryParams = []): ResponseInterface
     {
-        $ch = $this->prepareCurl($queryParams);
-        $body = curl_exec($ch);
-        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-
-        if ($body === false) {
-            $exception = new UnexpectedValueException(curl_error($ch), curl_errno($ch));
-            curl_close($ch);
-
-            throw $exception;
-        }
-        curl_close($ch);
-
-        return new Response($statusCode, $this->headers, new Stream($body));
+        $curl_resource = $this->prepareCurl($queryParams);
+        return $this->makeCurlRequest($curl_resource);
     }
 
     /**
@@ -136,13 +125,12 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param $ch
+     *
+     * @return \Soheilrt\AdobeConnectClient\Client\Connection\Curl\Response
      */
-    public function post(array $postParams, array $queryParams = []):ResponseInterface
+    protected function makeCurlRequest($ch): Response
     {
-        $ch = $this->prepareCurl($queryParams);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
         $body = curl_exec($ch);
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
@@ -155,6 +143,17 @@ class Connection implements ConnectionInterface
         curl_close($ch);
 
         return new Response($statusCode, $this->headers, new Stream($body));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function post(array $postParams, array $queryParams = []): ResponseInterface
+    {
+        $ch = $this->prepareCurl($queryParams);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
+        return $this->makeCurlRequest($ch);
     }
 
     /**
@@ -220,7 +219,7 @@ class Connection implements ConnectionInterface
      *
      * @return int The size of header line
      */
-    protected function extractHeader($curlResource, $headerLine):int
+    protected function extractHeader($curlResource, $headerLine): int
     {
         $headerSize = strlen($headerLine);
         $headerLine = trim($headerLine, " \t\n");
