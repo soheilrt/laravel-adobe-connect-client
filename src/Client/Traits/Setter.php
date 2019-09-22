@@ -127,4 +127,25 @@ trait Setter
     {
         return 'set' . SCT::toUpperCamelCase($name);
     }
+
+    /**
+     * this method will check if attribute is available in object instance. first it'll check for attribute getter and
+     * return value of getter method after that it'll check for attribute value in attributes array If all of
+     * these conditions fails, it'll check for attribute property in class.
+     *
+     *
+     * @param string $name
+     *
+     * @return bool
+     */
+    public function __isset($name)
+    {
+        if ($this->hasGetter($name)) {
+            return $this->${$this->getQualifiedGetterMethodName($name)} === null;
+        }
+        if (isset($this->attributes[$this->getQualifiedAttributeName($name)])) {
+            return true;
+        }
+        return isset($this->$name);
+    }
 }
