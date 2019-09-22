@@ -303,7 +303,7 @@ class Principal implements ArrayableInterface
                 return;
             }
 
-            list($this->attributes['firstName'], $this->attributes['lastName']) = $names;
+            [$this->attributes['firstName'], $this->attributes['lastName']] = $names;
         }
     }
 

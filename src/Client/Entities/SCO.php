@@ -257,6 +257,6 @@ class SCO implements ArrayableInterface
      */
     public function getUpdateLinkedItem(): bool
     {
-        return isset($this->attributes['updateLinkedItem']) ? $this->attributes['updateLinkedItem'] : false;
+        return $this->attributes['updateLinkedItem'] ?? false;
     }
 }
