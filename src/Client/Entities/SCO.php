@@ -81,28 +81,28 @@ class SCO implements ArrayableInterface
      *
      * @var string
      */
-    const TYPE_CONTENT = 'content';
+    public const TYPE_CONTENT = 'content';
 
     /**
      * A curriculum.
      *
      * @var string
      */
-    const TYPE_CURRICULUM = 'curriculum';
+    public const TYPE_CURRICULUM = 'curriculum';
 
     /**
      * An event.
      *
      * @var string
      */
-    const TYPE_EVENT = 'event';
+    public const TYPE_EVENT = 'event';
 
     /**
      * A folder on the server’s hard disk that contains content.
      *
      * @var string
      */
-    const TYPE_FOLDER = 'folder';
+    public const TYPE_FOLDER = 'folder';
 
     /**
      * A reference to another SCO. These links are used by curriculums to link to other SCOs.
@@ -110,21 +110,21 @@ class SCO implements ArrayableInterface
      *
      * @var string
      */
-    const TYPE_LINK = 'link';
+    public const TYPE_LINK = 'link';
 
     /**
      * An Adobe Connect meeting.
      *
      * @var string
      */
-    const TYPE_MEETING = 'meeting';
+    public const TYPE_MEETING = 'meeting';
 
     /**
      * One occurrence of a recurring Adobe Connect meeting.
      *
      * @var string
      */
-    const TYPE_SESSION = 'session';
+    public const TYPE_SESSION = 'session';
 
     /**
      * The root of a folder hierarchy. A tree’s root is treated as an independent hierarchy;
@@ -132,7 +132,7 @@ class SCO implements ArrayableInterface
      *
      * @var string
      */
-    const TYPE_TREE = 'tree';
+    public const TYPE_TREE = 'tree';
 
     /**
      * Create a new SCO Instance.

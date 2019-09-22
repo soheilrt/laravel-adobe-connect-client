@@ -34,7 +34,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const MEETING_PRINCIPAL_PUBLIC_ACCESS = 'public-access';
+    public const MEETING_PRINCIPAL_PUBLIC_ACCESS = 'public-access';
 
     /**
      * Special permission for Meeting.
@@ -45,7 +45,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const MEETING_ANYONE_WITH_URL = 'view-hidden';
+    public const MEETING_ANYONE_WITH_URL = 'view-hidden';
 
     /**
      * Special permission for Meeting.
@@ -56,7 +56,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const MEETING_PROTECTED = 'remove';
+    public const MEETING_PROTECTED = 'remove';
 
     /**
      * Special permission for Meeting.
@@ -67,7 +67,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const MEETING_PRIVATE = 'denied';
+    public const MEETING_PRIVATE = 'denied';
 
     /**
      * Special permission for Recording.
@@ -76,7 +76,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const RECORDING_PUBLIC = 'view';
+    public const RECORDING_PUBLIC = 'view';
 
     /**
      * The principal can view, but cannot modify, the SCO.
@@ -84,7 +84,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_VIEW = 'view';
+    public const PRINCIPAL_VIEW = 'view';
 
     /**
      * Available for meetings only.
@@ -94,7 +94,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_HOST = 'host';
+    public const PRINCIPAL_HOST = 'host';
 
     /**
      * Available for meetings only.
@@ -105,7 +105,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_MINI_HOST = 'mini-host';
+    public const PRINCIPAL_MINI_HOST = 'mini-host';
 
     /**
      * Available for meetings only.
@@ -116,7 +116,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_REMOVE = 'remove';
+    public const PRINCIPAL_REMOVE = 'remove';
 
     /**
      * Available for SCOs other than meetings.
@@ -127,7 +127,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_PUBLISH = 'publish';
+    public const PRINCIPAL_PUBLISH = 'publish';
 
     /**
      * Available for SCOs other than meetings or courses.
@@ -137,7 +137,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_MANAGE = 'manage';
+    public const PRINCIPAL_MANAGE = 'manage';
 
     /**
      * Available for SCOs other than meetings.
@@ -146,7 +146,7 @@ class Permission implements ArrayableInterface
      *
      * @var string
      */
-    const PRINCIPAL_DENIED = 'denied';
+    public const PRINCIPAL_DENIED = 'denied';
 
     public static function instance(): Permission
     {
