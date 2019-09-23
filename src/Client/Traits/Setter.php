@@ -141,7 +141,7 @@ trait Setter
     public function __isset($name)
     {
         if ($this->hasGetter($name)) {
-            return $this->${$this->getQualifiedGetterMethodName($name)} === null;
+            return !empty($this->{$this->getQualifiedGetterMethodName($name)}());
         }
         if (isset($this->attributes[$this->getQualifiedAttributeName($name)])) {
             return true;
