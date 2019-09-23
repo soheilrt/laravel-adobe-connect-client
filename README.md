@@ -8,7 +8,7 @@
 * Adobe Connect API >= V9.4.5
 * Laravel v5.8 OR v6.0
 
-__Note:__ This package is under heavy development and might be 	__UNSTABLE__ at some points.
+> __Note:__ This package is under heavy development and might be 	__UNSTABLE__ at some points.
 
 ## Installation
 you can install this package through [packagist](https://packagist.org/packages/soheilrt/laravel-adobe-connect-client)
