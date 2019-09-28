@@ -55,6 +55,6 @@ class SCO extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'sco';
+        return __CLASS__;
     }
 }

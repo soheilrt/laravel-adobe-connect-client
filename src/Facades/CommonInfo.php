@@ -22,6 +22,6 @@ class CommonInfo extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'common-info';
+        return __CLASS__;
     }
 }

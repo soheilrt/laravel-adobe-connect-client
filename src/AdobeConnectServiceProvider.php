@@ -4,12 +4,16 @@ namespace Soheilrt\AdobeConnectClient;
 
 use Illuminate\Contracts\Cache\Repository;
 use Illuminate\Contracts\Support\DeferrableProvider;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Psr\SimpleCache\InvalidArgumentException;
 use Soheilrt\AdobeConnectClient\Client\Client;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Connection;
+use Soheilrt\AdobeConnectClient\Facades\CommonInfo;
+use Soheilrt\AdobeConnectClient\Facades\Permission;
+use Soheilrt\AdobeConnectClient\Facades\Principal;
+use Soheilrt\AdobeConnectClient\Facades\SCO;
+use Soheilrt\AdobeConnectClient\Facades\SCORecord;
 
 class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -37,24 +41,20 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $this->app->singleton(Client::class, function () {
             return $this->processClient();
         });
-
-        $this->app->bind('sco', function () use ($entities) {
-            return new $entities["sco"]();
+        $this->app->bind(SCO::class, function () use ($entities) {
+            return $this->app->make($entities['sco']);
         });
-        $this->app->bind('sco-record', function () use ($entities) {
-            return new $entities["sco-record"]();
+        $this->app->bind(SCORecord::class, function () use ($entities) {
+            return $this->app->make($entities['sco-record']);
         });
-        $this->app->bind('principal', function () use ($entities) {
-            return new $entities["principal"]();
+        $this->app->bind(Principal::class, function () use ($entities) {
+            return $this->app->make($entities['principal']);
         });
-        $this->app->bind('permission', function () use ($entities) {
-            return new $entities["permission"]();
+        $this->app->bind(Permission::class, function () use ($entities) {
+            return  $this->app->make($entities['permission']);
         });
-        $this->app->bind('common-info', function () use ($entities) {
-            return new $entities["common-info"]();
-        });
-        $this->app->bind('adobe-connect', function () {
-            return App::make(Client::class);
+        $this->app->bind(CommonInfo::class, function () use ($entities) {
+            return $this->app->make($entities['common-info']);
         });
 
     }
@@ -177,12 +177,11 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     {
         return [
             Client::class,
-            'sco-record',
-            'principal',
-            'permission',
-            'common-info',
-            'sco',
-            'adobe-connect'
+            SCORecord::class,
+            Principal::class,
+            Permission::class,
+            CommonInfo::class,
+            SCO::class,
         ];
     }
 }

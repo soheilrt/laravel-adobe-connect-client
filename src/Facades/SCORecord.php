@@ -36,6 +36,6 @@ class SCORecord extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return "sco-record";
+        return __CLASS__;
     }
 }

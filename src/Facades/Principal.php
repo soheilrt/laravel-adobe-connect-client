@@ -37,6 +37,6 @@ class Principal extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'principal';
+        return __CLASS__;
     }
 }

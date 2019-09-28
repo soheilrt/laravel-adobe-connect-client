@@ -52,6 +52,6 @@ class Client extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'adobe-connect';
+        return \Soheilrt\AdobeConnectClient\Client\Client::class;
     }
 }
