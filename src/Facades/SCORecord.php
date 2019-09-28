@@ -30,7 +30,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord setDateCreated()
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord setDateModified()
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord setDuration()
- * @mixin \Soheilrt\AdobeConnectClient\Client\Entities\SCORecord
  */
 class SCORecord extends Facade
 {

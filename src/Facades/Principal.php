@@ -30,8 +30,6 @@ use Illuminate\Support\Facades\Facade;
  * @method  static \Soheilrt\AdobeConnectClient\Client\Entities\Principal setLastName($value)
  * @method  static \Soheilrt\AdobeConnectClient\Client\Entities\Principal setSendEmail($value)
  * @method  static \Soheilrt\AdobeConnectClient\Client\Entities\Principal setIsMember($value)
- *
- * @mixin \Soheilrt\AdobeConnectClient\Client\Entities\Principal
  */
 class Principal extends Facade
 {

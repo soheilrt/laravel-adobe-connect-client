@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setPermissionId()
  * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setPrincipalId()
  *
- * @mixin \Soheilrt\AdobeConnectClient\Client\Entities\Permission
  */
 class Permission extends Facade
 {
