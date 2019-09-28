@@ -24,7 +24,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . "/config/adobeConnect.php", 'adobeConnect');
+        $this->mergeConfigFrom(__DIR__ . '/config/adobeConnect.php', 'adobeConnect');
         $this->bindFacades();
     }
 
@@ -36,7 +36,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     private function bindFacades()
     {
         $config = $this->getAdobeConfig();
-        $entities = $config["entities"];
+        $entities = $config['entities'];
 
         $this->app->bind(Client::class, function () {
             return $this->processClient();
@@ -66,7 +66,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
      */
     private function getAdobeConfig()
     {
-        return $this->app["config"]->get("adobeConnect");
+        return $this->app['config']->get('adobeConnect');
     }
 
     /**
@@ -79,10 +79,10 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     {
         $config = $this->getAdobeConfig();
 
-        $connection = new Connection($config["host"], $config["connection"]);
+        $connection = new Connection($config['host'], $config['connection']);
         $client = new Client($connection);
 
-        if ($config["session-cache"]["enabled"]) {
+        if ($config['session-cache']['enabled']) {
             $this->loginClient($client);
         }
 
@@ -108,10 +108,10 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         //on the other side if there is any valid session inside cache, it'll use it for creating client instance
         // instead of sending login request to adobe server
         if ($this->ValidateCache($cacheRepository, $config['session-cache']['key'])) {
-            $client->setSession($cacheRepository->get($config["session-cache"]["key"]));
+            $client->setSession($cacheRepository->get($config['session-cache']['key']));
         } else {
 
-            $client->login($config["user-name"], $config["password"]);
+            $client->login($config['user-name'], $config['password']);
             //store client session string if login was successful
             if ($client->getSession()) {
                 $cacheRepository->put(
@@ -130,11 +130,11 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
      */
     private function getCacheDriver()
     {
-        $config = $this->app["config"]->get("adobeConnect");
-        if ($driver = $config["session-cache"]["driver"]) {
+        $config = $this->app['config']->get('adobeConnect');
+        if ($driver = $config['session-cache']['driver']) {
             return $driver;
         }
-        return $this->app["config"]->get("cache.default");
+        return $this->app['config']->get('cache.default');
     }
 
     /**
