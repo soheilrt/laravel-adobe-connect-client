@@ -38,7 +38,7 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $config = $this->getAdobeConfig();
         $entities = $config["entities"];
 
-        $this->app->singleton(Client::class, function () {
+        $this->app->bind(Client::class, function () {
             return $this->processClient();
         });
         $this->app->bind(SCO::class, function () use ($entities) {
