@@ -16,6 +16,6 @@ class Permission extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return __CLASS__;
+        return 'adobe-connect.permission';
     }
 }

@@ -4,7 +4,6 @@
 namespace Soheilrt\AdobeConnectClient\Facades;
 
 
-use DateTimeImmutable;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -34,6 +33,6 @@ class SCO extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return __CLASS__;
+        return 'adobe-connect.sco';
     }
 }

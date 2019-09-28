@@ -9,11 +9,6 @@ use Illuminate\Support\ServiceProvider;
 use Psr\SimpleCache\InvalidArgumentException;
 use Soheilrt\AdobeConnectClient\Client\Client;
 use Soheilrt\AdobeConnectClient\Client\Connection\Curl\Connection;
-use Soheilrt\AdobeConnectClient\Facades\CommonInfo;
-use Soheilrt\AdobeConnectClient\Facades\Permission;
-use Soheilrt\AdobeConnectClient\Facades\Principal;
-use Soheilrt\AdobeConnectClient\Facades\SCO;
-use Soheilrt\AdobeConnectClient\Facades\SCORecord;
 
 class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -41,19 +36,19 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
         $this->app->bind(Client::class, function () {
             return $this->processClient();
         });
-        $this->app->bind(SCO::class, function () use ($entities) {
+        $this->app->bind('adobe-connect.sco', function () use ($entities) {
             return $this->app->make($entities['sco']);
         });
-        $this->app->bind(SCORecord::class, function () use ($entities) {
+        $this->app->bind('adobe-connect.sco-record', function () use ($entities) {
             return $this->app->make($entities['sco-record']);
         });
-        $this->app->bind(Principal::class, function () use ($entities) {
+        $this->app->bind('adobe-connect.principal', function () use ($entities) {
             return $this->app->make($entities['principal']);
         });
-        $this->app->bind(Permission::class, function () use ($entities) {
-            return  $this->app->make($entities['permission']);
+        $this->app->bind('adobe-connect.permission', function () use ($entities) {
+            return $this->app->make($entities['permission']);
         });
-        $this->app->bind(CommonInfo::class, function () use ($entities) {
+        $this->app->bind('adobe-connect.common-info', function () use ($entities) {
             return $this->app->make($entities['common-info']);
         });
 
@@ -177,11 +172,11 @@ class AdobeConnectServiceProvider extends ServiceProvider implements DeferrableP
     {
         return [
             Client::class,
-            SCORecord::class,
-            Principal::class,
-            Permission::class,
-            CommonInfo::class,
-            SCO::class,
+            'adobe-connect.sco-record',
+            'adobe-connet.principal',
+            'adobe-connect.permission',
+            'adobe-connect.common-info',
+            'adobe-connect.sco',
         ];
     }
 }

@@ -35,6 +35,6 @@ class Principal extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return __CLASS__;
+        return 'adobe-connect.principal';
     }
 }
