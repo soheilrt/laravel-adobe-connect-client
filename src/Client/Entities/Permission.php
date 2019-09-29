@@ -11,17 +11,17 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  *
  * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id}
  *
- * @property int|string|mixed $acl_id       ACL (Access Control List) ID. Usually a SCO ID or Principal ID.
- * @property int|string|mixed $permission_id
- * @property int|string|mixed $principal_id Normally is int, but in special cases is string using the MEETING_* constants *
+ * @property int|string|mixed|null $acl_id       ACL (Access Control List) ID. Usually a SCO ID or Principal ID.
+ * @property int|string|mixed|null $permission_id
+ * @property int|string|mixed|null $principal_id Normally is int, but in special cases is string using the MEETING_* constants *
  *
- * @method int|string|mixed getAclId()       ACL -Access Control List- ID. Usually a SCO ID or Principal ID.
- * @method int|string|mixed getPermissionId()
- * @method int|string|mixed getPrincipalId() Normally is int, but in special cases is string using the MEETING_* constants
+ * @method int|string|mixed|null getAclId()       ACL -Access Control List- ID. Usually a SCO ID or Principal ID.
+ * @method int|string|mixed|null getPermissionId()
+ * @method int|string|mixed|null getPrincipalId() Normally is int, but in special cases is string using the MEETING_* constants
  *
- * @method int|string|mixed setAclId($value)       ACL (Access Control List) ID. Usually a SCO ID or Principal ID.
- * @method int|string|mixed setPermissionId($value)
- * @method int|string|mixed setPrincipalId($value) Normally is int, but in special cases is string using the MEETING_* constants *
+ * @method Permission setAclId($value)       ACL (Access Control List) ID. Usually a SCO ID or Principal ID.
+ * @method Permission setPermissionId($value)
+ * @method Permission setPrincipalId($value) Normally is int, but in special cases is string using the MEETING_* constants *
  */
 class Permission implements ArrayableInterface
 {

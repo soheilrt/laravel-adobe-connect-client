@@ -42,7 +42,7 @@ use UnexpectedValueException;
  * @method bool userUpdatePassword(int $userId, string $newPassword, string $oldPassword = '') Changes user’s password
  * @method bool groupMembershipUpdate(int $groupId, int $principalId, bool $isMember) Add or remove a principal from a group
  * @method bool permissionUpdate(Arrayable $permission) Updates the principal's permissions to access a SCO or the access mode if the acl-id is a Meeting
- * @method Principal[] permissionsInfo(int $aclId, Arrayable $filter, Arrayable $sorter) Get a list of principals who have permissions to act on a SCO, Principal or Account
+ * @method Principal[] permissionsInfo(int $aclId, Arrayable $filter = null, Arrayable $sorter = null) Get a list of principals who have permissions to act on a SCO, Principal or Account
  * @method Permission permissionInfoFromPrincipal(int $aclId, int $principalId) Get the Principal's permission in a SCO, Principal or Account
  * @method bool meetingFeatureUpdate(int $accountId, string $featureId, bool $enable) Set a feature
  * @method bool aclFieldUpdate(int $aclId, string $fieldId, mixed $value, Arrayable $extraParams = null) Updates the passed in Field for the specified ACL

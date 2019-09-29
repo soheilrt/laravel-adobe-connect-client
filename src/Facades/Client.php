@@ -34,7 +34,7 @@ use SplFileInfo;
  *         from a group
  * @method static bool permissionUpdate(Arrayable $permission) Updates the principal's permissions to access a SCO or
  *         the access mode if the acl-id is a Meeting
- * @method static Principal[] permissionsInfo(int $aclId, Arrayable $filter, Arrayable $sorter) Get a list of
+ * @method static Principal[] permissionsInfo(int $aclId, Arrayable $filter = null, Arrayable $sorter = null) Get a list of
  *         principals who have permissions to act on a SCO, Principal or Account
  * @method static Permission permissionInfoFromPrincipal(int $aclId, int $principalId) Get the Principal's permission
  *         in a SCO, Principal or Account
