@@ -109,6 +109,20 @@ class Principal implements ArrayableInterface
     public const TYPE_EVENT_ADMINS = 'event-admins';
 
     /**
+     * The Event Supper Admins
+     *
+     * @var string
+     */
+    public const TYPE_EVENT_SUPER_ADMINS = 'event-super-admins';
+
+    /**
+     * Virtual Classroom admins
+     *
+     * @var string
+     */
+    public const TYPE_NAMED_VIRTUAL_CLASSROM_ADMINS = 'named-vc-admins';
+
+    /**
      * The group of users invited to an event.
      *
      * @var string
@@ -342,6 +356,8 @@ class Principal implements ArrayableInterface
                 self::TYPE_AUTHORS,
                 self::TYPE_COURSE_ADMINS,
                 self::TYPE_EVENT_ADMINS,
+                self::TYPE_EVENT_SUPER_ADMINS,
+                self::TYPE_NAMED_VIRTUAL_CLASSROM_ADMINS,
                 self::TYPE_EVENT_GROUP,
                 self::TYPE_EVERYONE,
                 self::TYPE_EXTERNAL_GROUP,
