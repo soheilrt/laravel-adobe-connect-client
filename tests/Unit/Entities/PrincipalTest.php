@@ -468,4 +468,33 @@ class PrincipalTest extends TestCase
         $this->assertInstanceOf(Principal::class, $principal->setPassword('field'));
         $this->assertInstanceOf(Principal::class, $principal->setSendEmail(false));
     }
+
+    public function testFillable()
+    {
+        $values= [
+            'type'         => Principal::TYPE_USER,
+            'has-children' => 'false',
+            'principal-id' => '1',
+            'first-name'   => 'FirstName',
+            'last-name'    => 'LasName',
+            'login'        => 'Login',
+            'password'     => 'Password',
+            'email'        => 'E-Mail',
+            'send-email'   => 'false',
+        ];
+
+        $principal = Principal::instance()->fill($values);
+
+        $this->assertEquals($values,$principal->toArray());
+
+        $this->assertEquals(Principal::TYPE_USER,$principal->type);
+        $this->assertEquals('1',$principal->principal_id);
+        $this->assertEquals('FirstName',$principal->first_name);
+        $this->assertEquals('LasName',$principal->last_name);
+        $this->assertEquals('Login',$principal->login);
+        $this->assertEquals('Password',$principal->password);
+        $this->assertEquals('E-Mail',$principal->email);
+        $this->assertFalse($principal->has_children);
+        $this->assertFalse($principal->send_email);
+    }
 }

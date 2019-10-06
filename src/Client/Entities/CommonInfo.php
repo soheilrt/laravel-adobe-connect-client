@@ -6,6 +6,7 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use Exception;
 use Soheilrt\AdobeConnectClient\Client\Helpers\ValueTransform as VT;
+use Soheilrt\AdobeConnectClient\Client\Traits\Fillable;
 use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
 
 /**
@@ -47,7 +48,7 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  */
 class CommonInfo
 {
-    use PropertyCaller;
+    use PropertyCaller,Fillable;
 
     /**
      * Set the Date.

@@ -6,6 +6,7 @@ use DomainException;
 use Soheilrt\AdobeConnectClient\Client\Contracts\ArrayableInterface;
 use Soheilrt\AdobeConnectClient\Client\Helpers\StringCaseTransform as SCT;
 use Soheilrt\AdobeConnectClient\Client\Helpers\ValueTransform as VT;
+use Soheilrt\AdobeConnectClient\Client\Traits\Fillable;
 use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
 
 /**
@@ -72,7 +73,8 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  */
 class Principal implements ArrayableInterface
 {
-    use PropertyCaller;
+    use PropertyCaller, Fillable;
+
     /**
      * The built-in group Administrators, for Adobe Connect server Administrators.
      *

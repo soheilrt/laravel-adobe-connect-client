@@ -350,4 +350,16 @@ class SCOTest extends TestCase
         $this->assertInstanceOf(SCO::class, $sco->setMeetingPodsLayoutsLocked(false));
         $this->assertInstanceOf(SCO::class, $sco->setUpdateLinkedItem(false));
     }
+
+    public function testFillable()
+    {
+        $values = ['a' => 1, 'b' => 'test value', 'c' => 'nothing else', 'd' => null];
+        $sco = SCO::instance()->fill($values);
+
+        $this->assertEquals($values, $sco->toArray(false));
+
+        foreach ($values as $key => $value) {
+            $this->assertEquals($value, $sco->$key);
+        }
+    }
 }

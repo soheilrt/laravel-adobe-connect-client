@@ -265,4 +265,15 @@ class SCORecordTest extends TestCase
         $record->setFilename('Filename');
         $this->assertEquals('Filename', $record->getFilename());
     }
+
+    public function testFillable()
+    {
+        $values = ['a' => 1, 'b' => 'test value', 'c' => 'nothing else', 'd' => null];
+
+        $scoRecord = app()->make(SCORecord::class)->fill($values);
+
+        foreach ($values as $key => $value) {
+            $this->assertEquals($value, $scoRecord->$key);
+        }
+    }
 }

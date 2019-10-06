@@ -4,6 +4,7 @@ namespace Soheilrt\AdobeConnectClient\Client\Entities;
 
 use Soheilrt\AdobeConnectClient\Client\Contracts\ArrayableInterface;
 use Soheilrt\AdobeConnectClient\Client\Traits\Arrayable;
+use Soheilrt\AdobeConnectClient\Client\Traits\Fillable;
 use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
 
 /**
@@ -25,7 +26,7 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  */
 class Permission implements ArrayableInterface
 {
-    use Arrayable, PropertyCaller;
+    use Arrayable, PropertyCaller,Fillable;
 
     /**
      * Special permission for Meeting.

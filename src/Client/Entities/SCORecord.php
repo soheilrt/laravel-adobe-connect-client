@@ -7,6 +7,7 @@ use DateTimeImmutable;
 use Exception;
 use InvalidArgumentException;
 use Soheilrt\AdobeConnectClient\Client\Helpers\ValueTransform as VT;
+use Soheilrt\AdobeConnectClient\Client\Traits\Fillable;
 use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
 
 /**
@@ -71,7 +72,7 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  */
 class SCORecord
 {
-    use PropertyCaller;
+    use PropertyCaller,Fillable;
 
     /**
      * Set if is Folder.

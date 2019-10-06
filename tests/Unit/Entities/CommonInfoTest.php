@@ -100,4 +100,14 @@ class CommonInfoTest extends TestCase
         $commonInfo->setAccountId('10');
         $this->assertEquals(10, $commonInfo->getAccountId());
     }
+
+    public function testFillable()
+    {
+        $values = ['a' => 1, 'b' => 'test value', 'c' => 'nothing else', 'd' => null];
+        $sco = app()->make(CommonInfo::class)->fill($values);
+
+        foreach ($values as $key => $value) {
+            $this->assertEquals($value, $sco->$key);
+        }
+    }
 }

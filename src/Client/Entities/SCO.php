@@ -8,6 +8,7 @@ use Exception;
 use Soheilrt\AdobeConnectClient\Client\Contracts\ArrayableInterface;
 use Soheilrt\AdobeConnectClient\Client\Helpers\ValueTransform as VT;
 use Soheilrt\AdobeConnectClient\Client\Traits\Arrayable;
+use Soheilrt\AdobeConnectClient\Client\Traits\Fillable;
 use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
 
 /**
@@ -73,7 +74,7 @@ use Soheilrt\AdobeConnectClient\Client\Traits\PropertyCaller;
  */
 class SCO implements ArrayableInterface
 {
-    use Arrayable, PropertyCaller;
+    use Arrayable, PropertyCaller,Fillable;
 
     /**
      * A viewable file uploaded to the server.

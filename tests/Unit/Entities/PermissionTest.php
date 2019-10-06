@@ -72,4 +72,16 @@ class PermissionTest extends TestCase
         $this->assertInstanceOf(Permission::class, $permission->setPermissionId(Permission::MEETING_ANYONE_WITH_URL));
         $this->assertInstanceOf(Permission::class, $permission->setAclId(1));
     }
+
+    public function testFillable()
+    {
+        $values = ['a' => 1, 'b' => 'test value', 'c' => 'nothing else', 'd' => null];
+        $permission = Permission::instance()->fill($values);
+
+        $this->assertEquals($values,$permission->toArray(false));
+
+        foreach ($values as $key=>$value){
+            $this->assertEquals($value,$permission->$key);
+        }
+    }
 }
