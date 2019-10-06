@@ -6,8 +6,6 @@ namespace Soheilrt\AdobeConnectClient\Client\Traits;
 
 trait Fillable
 {
-    use Setter;
-
     /**
      * Mass assigment attributes
      *
@@ -18,7 +16,7 @@ trait Fillable
     public function fill(array $attributes)
     {
         foreach ($attributes as $name=>$value){
-            $this->__set($name,$value);
+            $this->$name=$value;
         }
         return $this;
     }
