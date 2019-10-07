@@ -7,6 +7,7 @@ namespace Soheilrt\AdobeConnectClient\Facades;
 use Illuminate\Support\Facades\Facade;
 use Soheilrt\AdobeConnectClient\Client\Contracts\ArrayableInterface as Arrayable;
 use SplFileInfo;
+use \Soheilrt\AdobeConnectClient\Client\Entities\SCO;
 
 /**
  * @method static bool login(string $login, string $password) Login in the Service.
