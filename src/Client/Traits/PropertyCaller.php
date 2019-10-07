@@ -26,7 +26,7 @@ trait PropertyCaller
             return $this->__set($this->getAttributeName($name), $arguments[0]);
         }
 
-        throw new BadMethodCallException('Called Method Not Found!');
+        throw new BadMethodCallException("Called Method '{$name}' Not Found!");
     }
 
     /**
