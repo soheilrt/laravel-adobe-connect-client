@@ -9,7 +9,7 @@ class FillableTraitTest extends TestCase
 {
     public function test_fillable()
     {
-        $values = ['a' => 1, 'b' => 'test value', 'c' => 'nothing else', 'd' => null];
+        $values = ['a' => 1, 'b' => 'test value', 'c' => 'nothing else', 'd' => null,'test-e'=>[2,2,2]];
 
         $fillableTestClass = $this->app->make(FillableTraitTestClass::class)->fill($values);
 
@@ -17,5 +17,6 @@ class FillableTraitTest extends TestCase
         $this->assertEquals($values['b'],$fillableTestClass->b);
         $this->assertEquals($values['c'],$fillableTestClass->c);
         $this->assertEquals($values['d'],$fillableTestClass->d);
+        $this->assertEquals($values['test-e'],$fillableTestClass->test_e);
     }
 }
