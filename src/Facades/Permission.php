@@ -7,9 +7,9 @@ namespace Soheilrt\AdobeConnectClient\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setAclId()
- * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setPermissionId()
- * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setPrincipalId()
+ * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setAclId($value)
+ * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setPermissionId($value)
+ * @method static \Soheilrt\AdobeConnectClient\Client\Entities\Permission setPrincipalId($value)
  *
  */
 class Permission extends Facade
