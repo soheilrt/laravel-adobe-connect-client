@@ -8,19 +8,17 @@
 * [Minimum Requirements](#minimum-requirements)
 * [Quick start](#quick-start)
 * [Commands](#commands)
-* [Queries](#queries)
+* Queries
     * [Filter](#filtering-results)
     * [Sorting](#sorting-results)
 * Advanced
     * [Publishing Configs](#publishing-configs)
-    * Entities
-    * Mass assignment
-    * Casting to array
-    * Cache
-    * Facades
-* Pending
-* Change log
-* License
+    * [Entities](#entities)
+    * [Mass assignment](#mass-assigment)
+    * [Casting to array](#casing-to-array)
+    * [Cache](#cache)
+    * [Facades](#facades)
+* [Pending](#pending)
 
 ## Intro
 `Laravel Adobe Connect` provides a convenient way for Laravel applications to communicate with adobe connect API. This package is originally inspired by [brunogasparetto's](https://github.com/brunogasparetto/AdobeConnectClient) package but had some changes to provide more flexibility for developers while using this package!
@@ -236,8 +234,8 @@ whole entity data at the once.
 By Default, we cache user session to prevent extra loggin request on every command but you
 can disable this feature if you prefer to manage your sessions manually
 
-> **Note:** we do not perform automatically login request if you disbale session cache
-and you have to perform it manually.
+> **Note:** we do not perform automatical login request if you disbale session cache
+and you should perform it manually.
 
 ### Facades
 we provided facades for entities in case you may someday change
