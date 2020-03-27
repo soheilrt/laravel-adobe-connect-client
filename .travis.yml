@@ -21,7 +21,7 @@ matrix:
     - php: 7.4
       env: LARAVEL_VERSION="6.*" ORCHESTRA_VERSION="4.0.*"
     - php: 7.4
-      env: LARAVE_VERSION="7.*" ORCHESTRA_VERSION="5.*"
+      env: LARAVEL_VERSION="7.*" ORCHESTRA_VERSION="5.*"
 cache:
   directories:
     - $HOME/.composer
