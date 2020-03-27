@@ -24,7 +24,7 @@ matrix:
       env: LARAVE_VERSION="7.*" ORCHESTRA_VERSION="5.*"
 cache:
   directories:
-    - $HOME/.composer/cache/files
+    - $HOME/.composer
 
 before_install:
   - composer require "laravel/framework:${LARAVEL_VERSION}" --no-update
